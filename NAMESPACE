@@ -2,10 +2,10 @@ importFrom(sp, is.projected, coordinates, CRS, SpatialPoints)
 importFrom(methods, is)
 
 exportMethods(
- "crepuscule", # amt incR
- "sunriset", # amt FLightR overlap PWFSLSmoke
+ "crepuscule", # birdscanR incR
+ "sunriset", # birdscanR FLightR PWFSLSmoke
  "solarnoon", # PWFSLSmoke
- "solarpos" # EMbC shadow
+ "solarpos" # EMbC
 )
 
 
