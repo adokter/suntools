@@ -7,16 +7,16 @@
 \alias{solarpos}
 
 \alias{crepuscule-methods}
-\alias{crepuscule,SpatialPoints,POSIXct-method}
+\alias{crepuscule,sf,POSIXct-method}
 \alias{crepuscule,matrix,POSIXct-method}
 \alias{solarnoon-methods}
-\alias{solarnoon,SpatialPoints,POSIXct-method}
+\alias{solarnoon,sf,POSIXct-method}
 \alias{solarnoon,matrix,POSIXct-method}
 \alias{solarpos-methods}
-\alias{solarpos,SpatialPoints,POSIXct-method}
+\alias{solarpos,sf,POSIXct-method}
 \alias{solarpos,matrix,POSIXct-method}
 \alias{sunriset-methods}
-\alias{sunriset,SpatialPoints,POSIXct-method}
+\alias{sunriset,sf,POSIXct-method}
 \alias{sunriset,matrix,POSIXct-method}
 
 
@@ -31,30 +31,30 @@
 
 \usage{
 
-\S4method{crepuscule}{SpatialPoints,POSIXct}(crds, dateTime, solarDep, direction=c("dawn", "dusk"),
+\S4method{crepuscule}{sf,POSIXct}(crds, dateTime, solarDep, direction=c("dawn", "dusk"),
            POSIXct.out=FALSE)
 \S4method{crepuscule}{matrix,POSIXct}(crds, dateTime,
-           proj4string=CRS("+proj=longlat +datum=WGS84"), solarDep,
+           crs=sf::st_crs(4326), solarDep,
            direction=c("dawn", "dusk"), POSIXct.out=FALSE)
-\S4method{sunriset}{SpatialPoints,POSIXct}(crds, dateTime, direction=c("sunrise", "sunset"),
+\S4method{sunriset}{sf,POSIXct}(crds, dateTime, direction=c("sunrise", "sunset"),
          POSIXct.out=FALSE)
 \S4method{sunriset}{matrix,POSIXct}(crds, dateTime,
-         proj4string=CRS("+proj=longlat +datum=WGS84"),
+         crs=sf::st_crs(4326),
          direction=c("sunrise", "sunset"), POSIXct.out=FALSE)
-\S4method{solarnoon}{SpatialPoints,POSIXct}(crds, dateTime, POSIXct.out=FALSE)
+\S4method{solarnoon}{sf,POSIXct}(crds, dateTime, POSIXct.out=FALSE)
 \S4method{solarnoon}{matrix,POSIXct}(crds, dateTime,
-          proj4string=CRS("+proj=longlat +datum=WGS84"),
+          crs=sf::st_crs(4326),
           POSIXct.out=FALSE)
-\S4method{solarpos}{SpatialPoints,POSIXct}(crds, dateTime, ...)
+\S4method{solarpos}{sf,POSIXct}(crds, dateTime, ...)
 \S4method{solarpos}{matrix,POSIXct}(crds, dateTime,
-         proj4string=CRS("+proj=longlat +datum=WGS84"), ...)
+         crs=sf::st_crs(4326), ...)
 
 }
 
 
 \arguments{
 
-  \item{crds}{a \code{SpatialPoints} or \code{matrix} object, containing
+  \item{crds}{a \code{sf} or \code{matrix} object, containing
     x and y coordinates (in that order).}
 
   \item{dateTime}{a POSIXct object with the date and time associated to
@@ -69,8 +69,8 @@
   \item{POSIXct.out}{logical indicating whether POSIXct output should be
     included.}
 
-  \item{proj4string}{string with valid projection string describing the
-    projection of data in \code{crds}.}
+  \item{crs}{object of class \code{crs} describing the
+    projection of data in \code{crds}}
 
   \item{\dots}{other arguments passed through.}
 
@@ -139,11 +139,11 @@
   \pkg{sp} classes.}
 
 \examples{
-library(sp)
+library(sf)
 ## Location of Helsinki, Finland, in decimal degrees,
 ## as listed in NOAA's website
 hels <- matrix(c(24.97, 60.17), nrow=1)
-Hels <- SpatialPoints(hels, proj4string=CRS("+proj=longlat +datum=WGS84"))
+Hels <- st_as_sf(as.data.frame(hels),coords=c(1,2), crs=st_crs(4326))
 d041224 <- as.POSIXct("2004-12-24", tz="EET")
 ## Astronomical dawn
 crepuscule(hels, d041224, solarDep=18, direction="dawn", POSIXct.out=TRUE)
@@ -167,18 +167,6 @@ down <- sunriset(Hels, Hels_seq, direction="sunset", POSIXct.out=TRUE)
 day_length <- down$time - up$time
 plot(Hels_seq, day_length, type="l")
 
-## Using a grid of spatial points for the same point in time
-\dontrun{
-grd <- GridTopology(c(-179,-89), c(1,1), c(359,179))
-SP <- SpatialPoints(coordinates(grd),
-                    proj4string=CRS("+proj=longlat +datum=WGS84"))
-wint <- as.POSIXct("2004-12-21", tz="GMT")
-win <- crepuscule(SP, wint, solarDep=6, direction="dawn")
-SPDF <- SpatialGridDataFrame(grd,
- proj4string=CRS("+proj=longlat +datum=WGS84"),
- data=data.frame(winter=win))
-image(SPDF, axes=TRUE, col=cm.colors(40))
-}
 }
 
 \keyword{methods}
