@@ -67,6 +67,15 @@ setMethod("crepuscule", signature(crds="matrix", dateTime="POSIXct"),
                          direction=direction, POSIXct.out=POSIXct.out)
           })
 
+setMethod("crepuscule", signature(crds="SpatialPoints", dateTime="POSIXct"),
+          function(crds, dateTime, solarDep,
+                   direction=c("dawn", "dusk"), POSIXct.out=FALSE) {
+              crds.sf <- st_as_sf(crds)
+              direction <- match.arg(direction)
+              crepuscule(crds.sf, dateTime=dateTime, solarDep=solarDep,
+                         direction=direction, POSIXct.out=POSIXct.out)
+          })
+
 ###_ + sunriset methods
 if (!isGeneric("sunriset")) {
     setGeneric("sunriset", function(crds, dateTime, ...) {
@@ -111,6 +120,16 @@ setMethod("sunriset", signature(crds="matrix", dateTime="POSIXct"),
                        direction=direction, POSIXct.out=POSIXct.out)
           })
 
+setMethod("sunriset", signature(crds="SpatialPoints", dateTime="POSIXct"),
+          function(crds, dateTime, direction=c("sunrise", "sunset"),
+                   POSIXct.out=FALSE) {
+              crds.sf <- st_as_sf(crds)
+              direction <- match.arg(direction)
+              sunriset(crds.sf, dateTime=dateTime,
+                       direction=direction, POSIXct.out=POSIXct.out)
+          })
+
+
 ###_ + solarnoon methods
 if (!isGeneric("solarnoon")) {
     setGeneric("solarnoon", function(crds, dateTime, ...) {
@@ -151,6 +170,13 @@ setMethod("solarnoon", signature(crds="matrix", dateTime="POSIXct"),
                         POSIXct.out=POSIXct.out)
           })
 
+setMethod("solarnoon", signature(crds="SpatialPoints", dateTime="POSIXct"),
+          function(crds, dateTime, POSIXct.out=FALSE) {
+              crds.sf <- st_as_sf(crds)
+              solarnoon(crds.sf, dateTime=dateTime,
+                        POSIXct.out=POSIXct.out)
+          })
+
 ###_ + solarpos methods
 if (!isGeneric("solarpos")) {
     setGeneric("solarpos", function(crds, dateTime, ...) {
@@ -182,8 +208,8 @@ setMethod("solarpos", signature(crds="matrix", dateTime="POSIXct"),
               solarpos(crds.sf, dateTime=dateTime)
           })
 
-
-###_ * Emacs local variables.
-## Local variables:
-## allout-layout: (+ : 0)
-## End:
+setMethod("solarpos", signature(crds="SpatialPoints", dateTime="POSIXct"),
+          function(crds, dateTime, ...) {
+              crds.sf <- st_as_sf(crds)
+              solarpos(crds.sf, dateTime=dateTime)
+          })

@@ -9,16 +9,19 @@
 \alias{crepuscule-methods}
 \alias{crepuscule,sf,POSIXct-method}
 \alias{crepuscule,matrix,POSIXct-method}
+\alias{crepuscule,SpatialPoints,POSIXct-method}
 \alias{solarnoon-methods}
 \alias{solarnoon,sf,POSIXct-method}
 \alias{solarnoon,matrix,POSIXct-method}
+\alias{solarnoon,SpatialPoints,POSIXct-method}
 \alias{solarpos-methods}
 \alias{solarpos,sf,POSIXct-method}
 \alias{solarpos,matrix,POSIXct-method}
+\alias{solarpos,SpatialPoints,POSIXct-method}
 \alias{sunriset-methods}
 \alias{sunriset,sf,POSIXct-method}
 \alias{sunriset,matrix,POSIXct-method}
-
+\alias{sunriset,SpatialPoints,POSIXct-method}
 
 \title{Methods for sun ephemerides calculations}
 
@@ -36,18 +39,24 @@
 \S4method{crepuscule}{matrix,POSIXct}(crds, dateTime,
            crs=sf::st_crs(4326), solarDep,
            direction=c("dawn", "dusk"), POSIXct.out=FALSE)
+\S4method{crepuscule}{SpatialPoints,POSIXct}(crds, dateTime, solarDep, direction=c("dawn", "dusk"),
+           POSIXct.out=FALSE)
 \S4method{sunriset}{sf,POSIXct}(crds, dateTime, direction=c("sunrise", "sunset"),
          POSIXct.out=FALSE)
 \S4method{sunriset}{matrix,POSIXct}(crds, dateTime,
          crs=sf::st_crs(4326),
          direction=c("sunrise", "sunset"), POSIXct.out=FALSE)
+\S4method{sunriset}{SpatialPoints,POSIXct}(crds, dateTime, direction=c("sunrise", "sunset"),
+         POSIXct.out=FALSE)
 \S4method{solarnoon}{sf,POSIXct}(crds, dateTime, POSIXct.out=FALSE)
 \S4method{solarnoon}{matrix,POSIXct}(crds, dateTime,
           crs=sf::st_crs(4326),
           POSIXct.out=FALSE)
+\S4method{solarnoon}{SpatialPoints,POSIXct}(crds, dateTime, POSIXct.out=FALSE)
 \S4method{solarpos}{sf,POSIXct}(crds, dateTime, ...)
 \S4method{solarpos}{matrix,POSIXct}(crds, dateTime,
          crs=sf::st_crs(4326), ...)
+\S4method{solarpos}{SpatialPoints,POSIXct}(crds, dateTime, ...)
 
 }
 
@@ -136,7 +145,8 @@
   \url{https://ecology.wa.gov/Research-Data/Data-resources/Models-spreadsheets/Modeling-the-environment/Models-tools-for-TMDLs}), who in turn
   translated it from original Javascript code by NOAA (see Details).
   Roger Bivand \email{roger.bivand@nhh.no} adapted the code to work with
-  \pkg{sp} classes.}
+  \pkg{sp} classes. Adriaan Dokter \email{amd427@cornell.edu} adapted the
+  code to work with \pkg{sf} classes.}
 
 \examples{
 library(sf)
