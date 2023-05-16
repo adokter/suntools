@@ -9,7 +9,7 @@ Authors@R: c(
         person("Greg", "Pelletier", role = "ctb"))
 Encoding: UTF-8
 Depends: R (>= 2.10)
-Imports: methods, sp (>= 1.0-11), sf
+Imports: methods, sf
 Description: Sun and solar functions and methods formerly provided by the 'maptools' package.
 License: GPL (>= 2)
 RoxygenNote: 7.2.3
