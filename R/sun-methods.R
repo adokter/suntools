@@ -28,14 +28,13 @@ if (!isGeneric("crepuscule")) {
 }
 
 setMethod("crepuscule",
-          signature(crds="SpatialPoints", dateTime="POSIXct"),
+          signature(crds="sf", dateTime="POSIXct"),
           function(crds, dateTime, solarDep,
                    direction=c("dawn", "dusk"), POSIXct.out=FALSE) {
-              if (!isTRUE(!is.projected(crds)))
-                  stop("crds must be geographical coordinates")
+              if (is.na(sf::st_crs(crds)))
+                stop("crds must be geographical coordinates")
               if (missing(solarDep)) stop("solarDep must be given")
-              crdsmtx <- matrix(c(coordinates(crds)[, 1],
-                                  coordinates(crds)[, 2]), ncol=2)
+              crdsmtx <- sf::st_coordinates(crds)
               eq.ll <- .balanceCrdsTimes(crdsmtx, dateTime)
               time.ll <- .timeData(eq.ll$dateTime)
               lon <- eq.ll$crds[, 1]
@@ -47,23 +46,33 @@ setMethod("crepuscule",
                                  dlstime=time.ll$dlstime,
                                  solarDep=solarDep, direction=direction)
               if (POSIXct.out) {
-                  secs <- res * 86400
-                  if (is.null(time.ll$tz)) Pct <- as.POSIXct(format(dateTime,
-                       "%Y-%m-%d")) + secs
-                  else Pct <- as.POSIXct(format(dateTime, "%Y-%m-%d"),
-                       tz=time.ll$tz) + secs
-                  res <- data.frame(day_frac=res, time=Pct)
+                secs <- res * 86400
+                if (is.null(time.ll$tz)) Pct <- as.POSIXct(format(dateTime,
+                                                                  "%Y-%m-%d")) + secs
+                else Pct <- as.POSIXct(format(dateTime, "%Y-%m-%d"),
+                                       tz=time.ll$tz) + secs
+                res <- data.frame(day_frac=res, time=Pct)
               }
               res
           })
 
+
 setMethod("crepuscule", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
-                   proj4string=CRS("+proj=longlat +datum=WGS84"), solarDep,
+                   crs=sf::st_crs(4326), solarDep,
                    direction=c("dawn", "dusk"), POSIXct.out=FALSE) {
-              crds.sp <- SpatialPoints(crds, proj4string=proj4string)
+              crds.sf <- st_as_sf(as.data.frame(crds),coords=c(1,2), crs=crs)
               direction <- match.arg(direction)
-              crepuscule(crds.sp, dateTime=dateTime, solarDep=solarDep,
+              crepuscule(crds.sf, dateTime=dateTime, solarDep=solarDep,
+                         direction=direction, POSIXct.out=POSIXct.out)
+          })
+
+setMethod("crepuscule", signature(crds="SpatialPoints", dateTime="POSIXct"),
+          function(crds, dateTime, solarDep,
+                   direction=c("dawn", "dusk"), POSIXct.out=FALSE) {
+              crds.sf <- st_as_sf(crds)
+              direction <- match.arg(direction)
+              crepuscule(crds.sf, dateTime=dateTime, solarDep=solarDep,
                          direction=direction, POSIXct.out=POSIXct.out)
           })
 
@@ -74,13 +83,12 @@ if (!isGeneric("sunriset")) {
     })
 }
 
-setMethod("sunriset", signature(crds="SpatialPoints", dateTime="POSIXct"),
+setMethod("sunriset", signature(crds="sf", dateTime="POSIXct"),
           function(crds, dateTime, direction=c("sunrise", "sunset"),
                    POSIXct.out=FALSE) {
-              if (!isTRUE(!is.projected(crds)))
+              if (is.na(sf::st_crs(crds)))
                   stop("crds must be geographical coordinates")
-              crdsmtx <- matrix(c(coordinates(crds)[, 1],
-                                  coordinates(crds)[, 2]), ncol=2)
+              crdsmtx <- sf::st_coordinates(crds)
               eq.ll <- .balanceCrdsTimes(crdsmtx, dateTime)
               time.ll <- .timeData(eq.ll$dateTime)
               lon <- eq.ll$crds[, 1]
@@ -104,13 +112,23 @@ setMethod("sunriset", signature(crds="SpatialPoints", dateTime="POSIXct"),
 
 setMethod("sunriset", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
-                   proj4string=CRS("+proj=longlat +datum=WGS84"),
+                   crs=sf::st_crs(4326),
                    direction=c("sunrise", "sunset"), POSIXct.out=FALSE) {
-              crds.sp <- SpatialPoints(crds, proj4string=proj4string)
+              crds.sf <- st_as_sf(as.data.frame(crds),coords=c(1,2), crs=crs)
               direction <- match.arg(direction)
-              sunriset(crds.sp, dateTime=dateTime,
+              sunriset(crds.sf, dateTime=dateTime,
                        direction=direction, POSIXct.out=POSIXct.out)
           })
+
+setMethod("sunriset", signature(crds="SpatialPoints", dateTime="POSIXct"),
+          function(crds, dateTime, direction=c("sunrise", "sunset"),
+                   POSIXct.out=FALSE) {
+              crds.sf <- st_as_sf(crds)
+              direction <- match.arg(direction)
+              sunriset(crds.sf, dateTime=dateTime,
+                       direction=direction, POSIXct.out=POSIXct.out)
+          })
+
 
 ###_ + solarnoon methods
 if (!isGeneric("solarnoon")) {
@@ -119,12 +137,11 @@ if (!isGeneric("solarnoon")) {
     })
 }
 
-setMethod("solarnoon", signature(crds="SpatialPoints", dateTime="POSIXct"),
+setMethod("solarnoon", signature(crds="sf", dateTime="POSIXct"),
           function(crds, dateTime, POSIXct.out=FALSE) {
-              if (!isTRUE(!is.projected(crds)))
+              if (is.na(sf::st_crs(crds)))
                   stop("crds must be geographical coordinates")
-              crdsmtx <- matrix(c(coordinates(crds)[, 1],
-                                  coordinates(crds)[, 2]), ncol=2)
+              crdsmtx <- sf::st_coordinates(crds)
               eq.ll <- .balanceCrdsTimes(crdsmtx, dateTime)
               time.ll <- .timeData(eq.ll$dateTime)
               lon <- eq.ll$crds[, 1]
@@ -146,10 +163,17 @@ setMethod("solarnoon", signature(crds="SpatialPoints", dateTime="POSIXct"),
 
 setMethod("solarnoon", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
-                   proj4string=CRS("+proj=longlat +datum=WGS84"),
+                   crs=sf::st_crs(4326),
                    POSIXct.out=FALSE) {
-              crds.sp <- SpatialPoints(crds, proj4string=proj4string)
-              solarnoon(crds.sp, dateTime=dateTime,
+              crds.sf <- st_as_sf(as.data.frame(crds),coords=c(1,2), crs=crs)
+              solarnoon(crds.sf, dateTime=dateTime,
+                        POSIXct.out=POSIXct.out)
+          })
+
+setMethod("solarnoon", signature(crds="SpatialPoints", dateTime="POSIXct"),
+          function(crds, dateTime, POSIXct.out=FALSE) {
+              crds.sf <- st_as_sf(crds)
+              solarnoon(crds.sf, dateTime=dateTime,
                         POSIXct.out=POSIXct.out)
           })
 
@@ -160,12 +184,11 @@ if (!isGeneric("solarpos")) {
     })
 }
 
-setMethod("solarpos", signature(crds="SpatialPoints", dateTime="POSIXct"),
+setMethod("solarpos", signature(crds="sf", dateTime="POSIXct"),
           function(crds, dateTime, ...) {
-              if (!isTRUE(!is.projected(crds)))
+              if (is.na(sf::st_crs(crds)))
                   stop("crds must be geographical coordinates")
-              crdsmtx <- matrix(c(coordinates(crds)[, 1],
-                                  coordinates(crds)[, 2]), ncol=2)
+              crdsmtx <- sf::st_coordinates(crds)
               eq.ll <- .balanceCrdsTimes(crdsmtx, dateTime)
               time.ll <- .timeData(eq.ll$dateTime)
               lon <- eq.ll$crds[, 1]
@@ -180,13 +203,13 @@ setMethod("solarpos", signature(crds="SpatialPoints", dateTime="POSIXct"),
 
 setMethod("solarpos", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
-                   proj4string=CRS("+proj=longlat +datum=WGS84"), ...) {
-              crds.sp <- SpatialPoints(crds, proj4string=proj4string)
-              solarpos(crds.sp, dateTime=dateTime)
+                   crs=sf::st_crs(4326), ...) {
+              crds.sf <- st_as_sf(as.data.frame(crds),coords=c(1,2), crs=crs)
+              solarpos(crds.sf, dateTime=dateTime)
           })
 
-
-###_ * Emacs local variables.
-## Local variables:
-## allout-layout: (+ : 0)
-## End:
+setMethod("solarpos", signature(crds="SpatialPoints", dateTime="POSIXct"),
+          function(crds, dateTime, ...) {
+              crds.sf <- st_as_sf(crds)
+              solarpos(crds.sf, dateTime=dateTime)
+          })

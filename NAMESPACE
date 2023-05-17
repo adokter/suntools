@@ -1,4 +1,4 @@
-importFrom(sp, is.projected, coordinates, CRS, SpatialPoints)
+importFrom(sf, st_crs, st_coordinates, st_as_sf)
 importFrom(methods, is)
 
 exportMethods(
