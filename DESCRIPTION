@@ -14,3 +14,6 @@ Description: Sun and solar functions and methods formerly provided by the 'mapto
 License: GPL (>= 2)
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
