@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 
 library(testthat)
-library(sunMaptools)
+library(suntools)
 
-test_check("sunMaptools")
+test_check("suntools")
