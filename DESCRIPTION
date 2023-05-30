@@ -1,4 +1,4 @@
-Package: sunMaptools
+Package: suntools
 Version: 1.1-8
 Date: 2023-04-15
 Title: Tools for Handling Spatial Objects
@@ -12,4 +12,8 @@ Depends: R (>= 2.10)
 Imports: methods, sf
 Description: Sun and solar functions and methods formerly provided by the 'maptools' package.
 License: GPL (>= 2)
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
