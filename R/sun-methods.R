@@ -88,7 +88,6 @@ setMethod("crepuscule", signature(crds="SpatialPoints", dateTime="POSIXct"),
 #' the moment for which the sunriset is calculated.
 #' @param direction Character, determines whether to calculate the time of sunrise or sunset.
 #' @param POSIXct.out Logical, if TRUE, the result is returned as a POSIXct object, otherwise, it is returned as a fraction of a day.
-#' @param ... Additional parameters for methods.
 #' @return The function returns the time of sunriset, either as a fraction of a day
 #' or as a POSIXct object, depending on the "POSIXct.out" parameter.
 #' @rdname sunriset
@@ -164,7 +163,6 @@ setMethod("sunriset", signature(crds="SpatialPoints", dateTime="POSIXct"),
 #' @param dateTime A POSIXct object representing the date and time. It specifies
 #' the moment for which the solar noon is calculated.
 #' @param POSIXct.out Logical, if TRUE, the result is returned as a POSIXct object, otherwise, it is returned as a fraction of a day.
-#' @param ... Additional parameters for methods.
 #' @return The function returns the time of solar noon, either as a fraction of a day
 #' or as a POSIXct object, depending on the "POSIXct.out" parameter.
 #' @rdname solarnoon
