@@ -106,7 +106,7 @@ test_that("solarnoon() can calculate the solar noon", {
 test_that("solarpos can caluclate the solar position", {
   # allow for floating point errors in test
   expect_equal(
-    solarpos(hels, as.POSIXct("2023-05-24 10:29:07", tz = "CEST")),
+    solarpos(hels, as.POSIXct("2023-05-24 10:29:07", tz = "UTC")),
     structure(c(184.478313910191, 50.5446683354915), dim = 1:2)
   )
 })
