@@ -26,7 +26,7 @@ test_that("crepuscule() calculates Astronomical dawn", {
         )
       ),
       class = "data.frame",
-      row.names = 'newlon' 
+      row.names = c(NA, -1L)
     )
   )
 })
@@ -44,7 +44,7 @@ test_that("crepuscule() can calculate Nautical dawn", {
         )
       ),
       class = "data.frame",
-      row.names = 'newlon' 
+      row.names = c(NA, -1L)
     )
   )
 })
@@ -62,7 +62,7 @@ test_that("crepescule() can calulate Civil dawn", {
         )
       ),
       class = "data.frame",
-      row.names = 'newlon' 
+      row.names = c(NA, -1L)
     )
   )
 })
@@ -80,7 +80,7 @@ test_that("sunriset() can calculate the sunrise", {
         )
       ),
       class = "data.frame",
-      row.names = 'newlon' 
+      row.names = c(NA, -1L) 
     )
   )
 })
@@ -98,7 +98,7 @@ test_that("solarnoon() can calculate the solar noon", {
         )
       ),
       class = "data.frame",
-      row.names = 'newlon' 
+      row.names = c(NA, -1L)
     )
   )
 })
