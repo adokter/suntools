@@ -21,11 +21,9 @@
 }
 
 ###_ + crepuscule methods
-if (!isGeneric("crepuscule")) {
-    setGeneric("crepuscule", function(crds, dateTime, ...) {
-        standardGeneric("crepuscule")
-    })
-}
+setGeneric("crepuscule", function(crds, dateTime, ...) {
+    standardGeneric("crepuscule")
+})
 
 setMethod("crepuscule",
           signature(crds="sf", dateTime="POSIXct"),
@@ -76,13 +74,32 @@ setMethod("crepuscule", signature(crds="SpatialPoints", dateTime="POSIXct"),
                          direction=direction, POSIXct.out=POSIXct.out)
           })
 
-###_ + sunriset methods
-if (!isGeneric("sunriset")) {
-    setGeneric("sunriset", function(crds, dateTime, ...) {
-        standardGeneric("sunriset")
-    })
-}
+#' @title Compute sunrise time
+#' @description This function calculates sunriset, either sunrise or sunset,
+#' depending on the "direction" parameter. The calculation depends on the
+#' geographical coordinates and the date and time. Different methods are available
+#' for different types of geographical coordinates:
+#' * "sf": an object of class "sf".
+#' * "matrix": a matrix of coordinates.
+#' * "SpatialPoints": an object of class "SpatialPoints".
+#'
+#' @param crds This represents geographical coordinates. It can be an object of
+#' class "sf", "matrix", or "SpatialPoints".
+#' @param dateTime A POSIXct object representing the date and time. It specifies
+#' the moment for which the sunriset is calculated.
+#' @param direction Character, determines whether to calculate the time of sunrise or sunset.
+#' @param POSIXct.out Logical, if TRUE, the result is returned as a POSIXct object, otherwise, it is returned as a fraction of a day.
+#' @param ... Additional parameters for methods.
+#' @return The function returns the time of sunriset, either as a fraction of a day
+#' or as a POSIXct object, depending on the "POSIXct.out" parameter.
+#' @rdname sunriset
+#' @export
+setGeneric("sunriset", function(crds, dateTime, ...) {
+    standardGeneric("sunriset")
+})
 
+#' @description Method for sf objects.
+#' @rdname sunriset
 setMethod("sunriset", signature(crds="sf", dateTime="POSIXct"),
           function(crds, dateTime, direction=c("sunrise", "sunset"),
                    POSIXct.out=FALSE) {
@@ -110,6 +127,10 @@ setMethod("sunriset", signature(crds="sf", dateTime="POSIXct"),
               res
           })
 
+#' @description Method for matrix objects. 
+#' @param crs A "CRS" object representing the coordinate reference system.
+#' Default is sf::st_crs(4326).
+#' @rdname sunriset
 setMethod("sunriset", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
                    crs=sf::st_crs(4326),
@@ -120,6 +141,8 @@ setMethod("sunriset", signature(crds="matrix", dateTime="POSIXct"),
                        direction=direction, POSIXct.out=POSIXct.out)
           })
 
+#' @description Method for SpatialPoints objects.
+#' @rdname sunriset
 setMethod("sunriset", signature(crds="SpatialPoints", dateTime="POSIXct"),
           function(crds, dateTime, direction=c("sunrise", "sunset"),
                    POSIXct.out=FALSE) {
@@ -129,13 +152,10 @@ setMethod("sunriset", signature(crds="SpatialPoints", dateTime="POSIXct"),
                        direction=direction, POSIXct.out=POSIXct.out)
           })
 
-
 ###_ + solarnoon methods
-if (!isGeneric("solarnoon")) {
-    setGeneric("solarnoon", function(crds, dateTime, ...) {
-        standardGeneric("solarnoon")
-    })
-}
+setGeneric("solarnoon", function(crds, dateTime, ...) {
+    standardGeneric("solarnoon")
+})
 
 setMethod("solarnoon", signature(crds="sf", dateTime="POSIXct"),
           function(crds, dateTime, POSIXct.out=FALSE) {
@@ -178,11 +198,10 @@ setMethod("solarnoon", signature(crds="SpatialPoints", dateTime="POSIXct"),
           })
 
 ###_ + solarpos methods
-if (!isGeneric("solarpos")) {
-    setGeneric("solarpos", function(crds, dateTime, ...) {
-        standardGeneric("solarpos")
-    })
-}
+setGeneric("solarpos", function(crds, dateTime, ...) {
+    standardGeneric("solarpos")
+})
+
 
 setMethod("solarpos", signature(crds="sf", dateTime="POSIXct"),
           function(crds, dateTime, ...) {

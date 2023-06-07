@@ -8,6 +8,7 @@ d041224 <- as.POSIXct("2004-12-24", tz = "EET")
 
 test_that("crepuscule() calculates Astronomical dawn", {
   # allow for floating point errors in test
+  # redoLonLat will be called
   expect_equal(
     crepuscule(
       hels,
@@ -25,7 +26,7 @@ test_that("crepuscule() calculates Astronomical dawn", {
         )
       ),
       class = "data.frame",
-      row.names = c(NA, -1L)
+      row.names = 'newlon' 
     )
   )
 })
@@ -43,7 +44,7 @@ test_that("crepuscule() can calculate Nautical dawn", {
         )
       ),
       class = "data.frame",
-      row.names = c(NA, -1L)
+      row.names = 'newlon' 
     )
   )
 })
@@ -61,7 +62,7 @@ test_that("crepescule() can calulate Civil dawn", {
         )
       ),
       class = "data.frame",
-      row.names = c(NA, -1L)
+      row.names = 'newlon' 
     )
   )
 })
@@ -79,7 +80,7 @@ test_that("sunriset() can calculate the sunrise", {
         )
       ),
       class = "data.frame",
-      row.names = c(NA, -1L)
+      row.names = 'newlon' 
     )
   )
 })
@@ -97,7 +98,7 @@ test_that("solarnoon() can calculate the solar noon", {
         )
       ),
       class = "data.frame",
-      row.names = c(NA, -1L)
+      row.names = 'newlon' 
     )
   )
 })
