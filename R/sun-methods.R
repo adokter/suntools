@@ -74,11 +74,10 @@ setMethod("crepuscule", signature(crds="SpatialPoints", dateTime="POSIXct"),
                          direction=direction, POSIXct.out=POSIXct.out)
           })
 
-#' @title Compute sunrise time
-#' @description This function calculates sunriset, either sunrise or sunset,
-#' depending on the "direction" parameter. The calculation depends on the
-#' geographical coordinates and the date and time. Different methods are available
-#' for different types of geographical coordinates:
+#' @title Calculate sunrise/sunset
+#' @description Calculates sunrise or sunset at a specific geographical location and time.
+#' depending on the "direction" parameter. Methods are available
+#' for differet object types with geographical coordinates, including:
 #' * "sf": an object of class "sf".
 #' * "matrix": a matrix of coordinates.
 #' * "SpatialPoints": an object of class "SpatialPoints".
@@ -152,7 +151,24 @@ setMethod("sunriset", signature(crds="SpatialPoints", dateTime="POSIXct"),
                        direction=direction, POSIXct.out=POSIXct.out)
           })
 
-###_ + solarnoon methods
+#' @title Compute solar noon time
+#' @description Calculates the solar noon, i.e., the time when the sun is at its highest point in the sky. 
+#' at a specific geographical location and time. Methods are available for differet object types with
+#' geographical coordinates, including:
+#' * "sf": an object of class "sf".
+#' * "matrix": a matrix of coordinates.
+#' * "SpatialPoints": an object of class "SpatialPoints".
+#'
+#' @param crds This represents geographical coordinates. It can be an object of
+#' class "sf", "matrix", or "SpatialPoints".
+#' @param dateTime A POSIXct object representing the date and time. It specifies
+#' the moment for which the solar noon is calculated.
+#' @param POSIXct.out Logical, if TRUE, the result is returned as a POSIXct object, otherwise, it is returned as a fraction of a day.
+#' @param ... Additional parameters for methods.
+#' @return The function returns the time of solar noon, either as a fraction of a day
+#' or as a POSIXct object, depending on the "POSIXct.out" parameter.
+#' @rdname solarnoon
+#' @export
 setGeneric("solarnoon", function(crds, dateTime, ...) {
     standardGeneric("solarnoon")
 })
