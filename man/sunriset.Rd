@@ -5,7 +5,7 @@
 \alias{sunriset,sf,POSIXct-method}
 \alias{sunriset,matrix,POSIXct-method}
 \alias{sunriset,SpatialPoints,POSIXct-method}
-\title{Compute sunrise time}
+\title{Calculate sunrise/sunset}
 \usage{
 sunriset(crds, dateTime, ...)
 
@@ -38,8 +38,6 @@ class "sf", "matrix", or "SpatialPoints".}
 \item{dateTime}{A POSIXct object representing the date and time. It specifies
 the moment for which the sunriset is calculated.}
 
-\item{...}{Additional parameters for methods.}
-
 \item{direction}{Character, determines whether to calculate the time of sunrise or sunset.}
 
 \item{POSIXct.out}{Logical, if TRUE, the result is returned as a POSIXct object, otherwise, it is returned as a fraction of a day.}
@@ -52,10 +50,9 @@ The function returns the time of sunriset, either as a fraction of a day
 or as a POSIXct object, depending on the "POSIXct.out" parameter.
 }
 \description{
-This function calculates sunriset, either sunrise or sunset,
-depending on the "direction" parameter. The calculation depends on the
-geographical coordinates and the date and time. Different methods are available
-for different types of geographical coordinates:
+Calculates sunrise or sunset at a specific geographical location and time.
+depending on the "direction" parameter. Methods are available
+for differet object types with geographical coordinates, including:
 \itemize{
 \item "sf": an object of class "sf".
 \item "matrix": a matrix of coordinates.

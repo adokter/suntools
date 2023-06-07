@@ -20,11 +20,32 @@
     list(crds=crds, dateTime=dateTime)
 }
 
-###_ + crepuscule methods
+#' @title Compute crepuscular time
+#' @description Calculates the crepuscular time, i.e., the time of dawn or dusk, 
+#' at a specific geographical location and time. Methods are available for different 
+#' object types with geographical coordinates, including:
+#' * "sf": an object of class "sf".
+#' * "matrix": a matrix of coordinates.
+#' * "SpatialPoints": an object of class "SpatialPoints".
+#'
+#' @param crds This represents geographical coordinates. It can be an object of
+#' class "sf", "matrix", or "SpatialPoints".
+#' @param dateTime A POSIXct object representing the date and time. It specifies
+#' the moment for which the crepuscular time is calculated.
+#' @param solarDep A numerical value representing the solar depression angle.
+#' @param direction A character string representing the direction, either "dawn" or "dusk".
+#' @param POSIXct.out Logical, if TRUE, the result is returned as a POSIXct object, 
+#' otherwise, it is returned as a fraction of a day.
+#' @return The function returns the time of crepuscular light, either as a fraction of a day
+#' or as a POSIXct object, depending on the "POSIXct.out" parameter.
+#' @rdname crepuscule
+#' @export
 setGeneric("crepuscule", function(crds, dateTime, ...) {
     standardGeneric("crepuscule")
 })
 
+#' @description Method for sf objects.
+#' @rdname crepuscule
 setMethod("crepuscule",
           signature(crds="sf", dateTime="POSIXct"),
           function(crds, dateTime, solarDep,
@@ -54,7 +75,10 @@ setMethod("crepuscule",
               res
           })
 
-
+#' @description Method for matrix objects. 
+#' @param crs A "CRS" object representing the coordinate reference system.
+#' Default is sf::st_crs(4326).
+#' @rdname crepuscule
 setMethod("crepuscule", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
                    crs=sf::st_crs(4326), solarDep,
@@ -65,6 +89,8 @@ setMethod("crepuscule", signature(crds="matrix", dateTime="POSIXct"),
                          direction=direction, POSIXct.out=POSIXct.out)
           })
 
+#' @description Method for SpatialPoints objects.
+#' @rdname crepuscule
 setMethod("crepuscule", signature(crds="SpatialPoints", dateTime="POSIXct"),
           function(crds, dateTime, solarDep,
                    direction=c("dawn", "dusk"), POSIXct.out=FALSE) {
@@ -256,7 +282,9 @@ setMethod("solarpos", signature(crds="sf", dateTime="POSIXct"),
               matrix(c(azimuth=res[, 1], elevation=res[, 2]), ncol=2)
           })
 
-#' @description Method for SpatialPoints objects.
+#' @description Method for matrix objects. 
+#' @param crs A "CRS" object representing the coordinate reference system.
+#' Default is sf::st_crs(4326).
 #' @rdname solarpos
 setMethod("solarpos", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
@@ -265,6 +293,8 @@ setMethod("solarpos", signature(crds="matrix", dateTime="POSIXct"),
               solarpos(crds.sf, dateTime=dateTime)
           })
 
+#' @description Method for SpatialPoints objects.
+#' @rdname solarpos
 setMethod("solarpos", signature(crds="SpatialPoints", dateTime="POSIXct"),
           function(crds, dateTime, ...) {
               crds.sf <- st_as_sf(crds)
