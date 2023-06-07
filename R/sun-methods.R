@@ -171,6 +171,8 @@ setGeneric("solarnoon", function(crds, dateTime, ...) {
     standardGeneric("solarnoon")
 })
 
+#' @description Method for sf objects.
+#' @rdname solarnoon
 setMethod("solarnoon", signature(crds="sf", dateTime="POSIXct"),
           function(crds, dateTime, POSIXct.out=FALSE) {
               if (is.na(sf::st_crs(crds)))
@@ -217,12 +219,26 @@ setMethod("solarnoon", signature(crds="SpatialPoints", dateTime="POSIXct"),
                         POSIXct.out=POSIXct.out)
           })
 
-###_ + solarpos methods
+#' @title Compute solar position
+#' @description Calculates the solar position, i.e., the sun's elevation and azimuth, at a specific geographical location and time. 
+#' Methods are available for different object types with geographical coordinates, including:
+#' * "sf": an object of class "sf".
+#' * "matrix": a matrix of coordinates.
+#' * "SpatialPoints": an object of class "SpatialPoints".
+#'
+#' @param crds This represents geographical coordinates. It can be an object of
+#' class "sf", "matrix", or "SpatialPoints".
+#' @param dateTime A POSIXct object representing the date and time. It specifies
+#' the moment for which the solar position is calculated.
+#' @return The function returns a matrix with the sun's azimuth and elevation.
+#' @rdname solarpos
+#' @export
 setGeneric("solarpos", function(crds, dateTime, ...) {
     standardGeneric("solarpos")
 })
 
-
+#' @description Method for sf objects.
+#' @rdname solarpos
 setMethod("solarpos", signature(crds="sf", dateTime="POSIXct"),
           function(crds, dateTime, ...) {
               if (is.na(sf::st_crs(crds)))
@@ -240,6 +256,8 @@ setMethod("solarpos", signature(crds="sf", dateTime="POSIXct"),
               matrix(c(azimuth=res[, 1], elevation=res[, 2]), ncol=2)
           })
 
+#' @description Method for SpatialPoints objects.
+#' @rdname solarpos
 setMethod("solarpos", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
                    crs=sf::st_crs(4326), ...) {
