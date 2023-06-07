@@ -22,6 +22,8 @@ class "sf", "matrix", or "SpatialPoints".}
 \item{dateTime}{A POSIXct object representing the date and time. It specifies
 the moment for which the solar position is calculated.}
 
+\item{...}{Additional arguments that are passed to methods.}
+
 \item{crs}{A "CRS" object representing the coordinate reference system.
 Default is sf::st_crs(4326).}
 }

@@ -41,6 +41,8 @@ class "sf", "matrix", or "SpatialPoints".}
 \item{dateTime}{A POSIXct object representing the date and time. It specifies
 the moment for which the crepuscular time is calculated.}
 
+\item{...}{Additional arguments that are passed to methods.}
+
 \item{solarDep}{A numerical value representing the solar depression angle.}
 
 \item{direction}{A character string representing the direction, either "dawn" or "dusk".}

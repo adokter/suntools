@@ -22,6 +22,8 @@ class "sf", "matrix", or "SpatialPoints".}
 \item{dateTime}{A POSIXct object representing the date and time. It specifies
 the moment for which the solar noon is calculated.}
 
+\item{...}{Additional arguments that are passed to methods.}
+
 \item{POSIXct.out}{Logical, if TRUE, the result is returned as a POSIXct object, otherwise, it is returned as a fraction of a day.}
 
 \item{crs}{A "CRS" object representing the coordinate reference system.
