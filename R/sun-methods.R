@@ -32,6 +32,7 @@
 #' class "sf", "matrix", or "SpatialPoints".
 #' @param dateTime A POSIXct object representing the date and time. It specifies
 #' the moment for which the crepuscular time is calculated.
+#' @param ... Additional arguments that are passed to methods. 
 #' @param solarDep A numerical value representing the solar depression angle.
 #' @param direction A character string representing the direction, either "dawn" or "dusk".
 #' @param POSIXct.out Logical, if TRUE, the result is returned as a POSIXct object, 
@@ -112,6 +113,7 @@ setMethod("crepuscule", signature(crds="SpatialPoints", dateTime="POSIXct"),
 #' class "sf", "matrix", or "SpatialPoints".
 #' @param dateTime A POSIXct object representing the date and time. It specifies
 #' the moment for which the sunriset is calculated.
+#' @param ... Additional arguments that are passed to methods. 
 #' @param direction Character, determines whether to calculate the time of sunrise or sunset.
 #' @param POSIXct.out Logical, if TRUE, the result is returned as a POSIXct object, otherwise, it is returned as a fraction of a day.
 #' @return The function returns the time of sunriset, either as a fraction of a day
@@ -188,6 +190,7 @@ setMethod("sunriset", signature(crds="SpatialPoints", dateTime="POSIXct"),
 #' class "sf", "matrix", or "SpatialPoints".
 #' @param dateTime A POSIXct object representing the date and time. It specifies
 #' the moment for which the solar noon is calculated.
+#' @param ... Additional arguments that are passed to methods. 
 #' @param POSIXct.out Logical, if TRUE, the result is returned as a POSIXct object, otherwise, it is returned as a fraction of a day.
 #' @return The function returns the time of solar noon, either as a fraction of a day
 #' or as a POSIXct object, depending on the "POSIXct.out" parameter.
@@ -256,6 +259,7 @@ setMethod("solarnoon", signature(crds="SpatialPoints", dateTime="POSIXct"),
 #' class "sf", "matrix", or "SpatialPoints".
 #' @param dateTime A POSIXct object representing the date and time. It specifies
 #' the moment for which the solar position is calculated.
+#' @param ... Additional arguments that are passed to methods. 
 #' @return The function returns a matrix with the sun's azimuth and elevation.
 #' @rdname solarpos
 #' @export
