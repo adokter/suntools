@@ -195,6 +195,10 @@ setMethod("solarnoon", signature(crds="sf", dateTime="POSIXct"),
               res
           })
 
+#' @description Method for matrix objects. 
+#' @param crs A "CRS" object representing the coordinate reference system.
+#' Default is sf::st_crs(4326).
+#' @rdname solarnoon
 setMethod("solarnoon", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
                    crs=sf::st_crs(4326),
@@ -204,6 +208,8 @@ setMethod("solarnoon", signature(crds="matrix", dateTime="POSIXct"),
                         POSIXct.out=POSIXct.out)
           })
 
+#' @description Method for SpatialPoints objects.
+#' @rdname solarnoon
 setMethod("solarnoon", signature(crds="SpatialPoints", dateTime="POSIXct"),
           function(crds, dateTime, POSIXct.out=FALSE) {
               crds.sf <- st_as_sf(crds)
