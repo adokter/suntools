@@ -17,15 +17,15 @@ solarpos(crds, dateTime, ...)
 }
 \arguments{
 \item{crds}{This represents geographical coordinates. It can be an object of
-class "sf", "matrix", or "SpatialPoints".}
+class \code{sf}, \code{matrix}, or \code{SpatialPoints}.}
 
-\item{dateTime}{A POSIXct object representing the date and time. It specifies
+\item{dateTime}{A \code{POSIXct} object representing the date and time. It specifies
 the moment for which the solar position is calculated.}
 
 \item{...}{Additional arguments that are passed to methods.}
 
-\item{crs}{A "CRS" object representing the coordinate reference system.
-Default is sf::st_crs(4326).}
+\item{crs}{A \code{CRS} object representing the coordinate reference system.
+Default is \code{sf::st_crs(4326)}.}
 }
 \value{
 The function returns a matrix with the sun's azimuth and elevation.
@@ -34,8 +34,8 @@ The function returns a matrix with the sun's azimuth and elevation.
 Calculates the solar position, i.e., the sun's elevation and azimuth, at a specific geographical location and time.
 Methods are available for different object types with geographical coordinates, including:
 \itemize{
-\item "sf": an object of class "sf".
-\item "matrix": a matrix of coordinates.
-\item "SpatialPoints": an object of class "SpatialPoints".
+\item \code{sf}: an object of class \code{sf}.
+\item \code{matrix}: a matrix of coordinates.
+\item \code{SpatialPoints}: an object of class \code{SpatialPoints}.
 }
 }

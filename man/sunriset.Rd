@@ -33,31 +33,31 @@ sunriset(crds, dateTime, ...)
 }
 \arguments{
 \item{crds}{This represents geographical coordinates. It can be an object of
-class "sf", "matrix", or "SpatialPoints".}
+class \code{sf}, \code{matrix}, or \code{SpatialPoints}.}
 
-\item{dateTime}{A POSIXct object representing the date and time. It specifies
+\item{dateTime}{A \code{POSIXct} object representing the date and time. It specifies
 the moment for which the sunriset is calculated.}
 
 \item{...}{Additional arguments that are passed to methods.}
 
 \item{direction}{Character, determines whether to calculate the time of sunrise or sunset.}
 
-\item{POSIXct.out}{Logical, if TRUE, the result is returned as a POSIXct object, otherwise, it is returned as a fraction of a day.}
+\item{POSIXct.out}{Logical, if \code{TRUE}, the result is returned as a \code{POSIXct} object, otherwise, it is returned as a fraction of a day.}
 
 \item{crs}{A "CRS" object representing the coordinate reference system.
-Default is sf::st_crs(4326).}
+Default is \code{sf::st_crs(4326)}.}
 }
 \value{
 The function returns the time of sunriset, either as a fraction of a day
-or as a POSIXct object, depending on the "POSIXct.out" parameter.
+or as a \code{POSIXct} object, depending on the \code{POSIXct.out} parameter.
 }
 \description{
 Calculates sunrise or sunset at a specific geographical location and time.
-depending on the "direction" parameter. Methods are available
+depending on the \code{direction} parameter. Methods are available
 for differet object types with geographical coordinates, including:
 \itemize{
-\item "sf": an object of class "sf".
-\item "matrix": a matrix of coordinates.
-\item "SpatialPoints": an object of class "SpatialPoints".
+\item \code{sf}: an object of class \code{sf}.
+\item \code{matrix}: a matrix of coordinates.
+\item \code{SpatialPoints}: an object of class \code{SpatialPoints}.
 }
 }

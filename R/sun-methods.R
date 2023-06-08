@@ -2,21 +2,21 @@
 #' @description Calculates the crepuscular time, i.e., the time of dawn or dusk, 
 #' at a specific geographical location and time. Methods are available for different 
 #' object types with geographical coordinates, including:
-#' * "sf": an object of class "sf".
-#' * "matrix": a matrix of coordinates.
-#' * "SpatialPoints": an object of class "SpatialPoints".
+#' * `sf`: an object of class `sf`.
+#' * `matrix`: a matrix of coordinates.
+#' * `SpatialPoints`: an object of class `SpatialPoints`.
 #'
 #' @param crds This represents geographical coordinates. It can be an object of
-#' class "sf", "matrix", or "SpatialPoints".
-#' @param dateTime A POSIXct object representing the date and time. It specifies
+#' class `sf`, `matrix`, or `SpatialPoints`.
+#' @param dateTime A `POSIXct` object representing the date and time. It specifies
 #' the moment for which the crepuscular time is calculated.
 #' @param ... Additional arguments that are passed to methods. 
 #' @param solarDep A numerical value representing the solar depression angle.
-#' @param direction A character string representing the direction, either "dawn" or "dusk".
-#' @param POSIXct.out Logical, if TRUE, the result is returned as a POSIXct object, 
+#' @param direction A character string representing the `direction`, either "dawn" or "dusk".
+#' @param POSIXct.out Logical, if TRUE, the result is returned as a `POSIXct` object, 
 #' otherwise, it is returned as a fraction of a day.
 #' @return The function returns the time of crepuscular light, either as a fraction of a day
-#' or as a POSIXct object, depending on the "POSIXct.out" parameter.
+#' or as a `POSIXct` object, depending on the `POSIXct.out` parameter.
 #' @rdname crepuscule
 #' @export
 setGeneric("crepuscule", function(crds, dateTime, ...) {
@@ -54,8 +54,8 @@ setMethod("crepuscule",
           })
 
 #' @rdname crepuscule
-#' @param crs A "CRS" object representing the coordinate reference system.
-#' Default is sf::st_crs(4326).
+#' @param crs A `CRS` object representing the coordinate reference system.
+#' Default is `sf::st_crs(4326)`.
 setMethod("crepuscule", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
                    crs=sf::st_crs(4326), solarDep,
@@ -78,21 +78,21 @@ setMethod("crepuscule", signature(crds="SpatialPoints", dateTime="POSIXct"),
 
 #' @title Calculate sunrise/sunset
 #' @description Calculates sunrise or sunset at a specific geographical location and time.
-#' depending on the "direction" parameter. Methods are available
+#' depending on the `direction` parameter. Methods are available
 #' for differet object types with geographical coordinates, including:
-#' * "sf": an object of class "sf".
-#' * "matrix": a matrix of coordinates.
-#' * "SpatialPoints": an object of class "SpatialPoints".
+#' * `sf`: an object of class `sf`.
+#' * `matrix`: a matrix of coordinates.
+#' * `SpatialPoints`: an object of class `SpatialPoints`.
 #'
 #' @param crds This represents geographical coordinates. It can be an object of
-#' class "sf", "matrix", or "SpatialPoints".
-#' @param dateTime A POSIXct object representing the date and time. It specifies
+#' class `sf`, `matrix`, or `SpatialPoints`.
+#' @param dateTime A `POSIXct` object representing the date and time. It specifies
 #' the moment for which the sunriset is calculated.
 #' @param ... Additional arguments that are passed to methods. 
 #' @param direction Character, determines whether to calculate the time of sunrise or sunset.
-#' @param POSIXct.out Logical, if TRUE, the result is returned as a POSIXct object, otherwise, it is returned as a fraction of a day.
+#' @param POSIXct.out Logical, if `TRUE`, the result is returned as a `POSIXct` object, otherwise, it is returned as a fraction of a day.
 #' @return The function returns the time of sunriset, either as a fraction of a day
-#' or as a POSIXct object, depending on the "POSIXct.out" parameter.
+#' or as a `POSIXct` object, depending on the `POSIXct.out` parameter.
 #' @rdname sunriset
 #' @export
 setGeneric("sunriset", function(crds, dateTime, ...) {
@@ -128,7 +128,7 @@ setMethod("sunriset", signature(crds="sf", dateTime="POSIXct"),
           })
 
 #' @param crs A "CRS" object representing the coordinate reference system.
-#' Default is sf::st_crs(4326).
+#' Default is `sf::st_crs(4326)`.
 #' @rdname sunriset
 setMethod("sunriset", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
@@ -154,18 +154,18 @@ setMethod("sunriset", signature(crds="SpatialPoints", dateTime="POSIXct"),
 #' @description Calculates the solar noon, i.e., the time when the sun is at its highest point in the sky. 
 #' at a specific geographical location and time. Methods are available for differet object types with
 #' geographical coordinates, including:
-#' * "sf": an object of class "sf".
-#' * "matrix": a matrix of coordinates.
-#' * "SpatialPoints": an object of class "SpatialPoints".
+#' * `sf`: an object of class `sf`.
+#' * `matrix`: a matrix of coordinates.
+#' * `SpatialPoints`: an object of class `SpatialPoints`.
 #'
 #' @param crds This represents geographical coordinates. It can be an object of
-#' class "sf", "matrix", or "SpatialPoints".
-#' @param dateTime A POSIXct object representing the date and time. It specifies
+#' class `sf`, `matrix`, or `SpatialPoints`.
+#' @param dateTime A `POSIXct` object representing the date and time. It specifies
 #' the moment for which the solar noon is calculated.
 #' @param ... Additional arguments that are passed to methods. 
-#' @param POSIXct.out Logical, if TRUE, the result is returned as a POSIXct object, otherwise, it is returned as a fraction of a day.
+#' @param POSIXct.out Logical, if `TRUE`, the result is returned as a `POSIXct` object, otherwise, it is returned as a fraction of a day.
 #' @return The function returns the time of solar noon, either as a fraction of a day
-#' or as a POSIXct object, depending on the "POSIXct.out" parameter.
+#' or as a `POSIXct` object, depending on the `POSIXct.out` parameter.
 #' @rdname solarnoon
 #' @export
 setGeneric("solarnoon", function(crds, dateTime, ...) {
@@ -197,8 +197,8 @@ setMethod("solarnoon", signature(crds="sf", dateTime="POSIXct"),
               res
           })
 
-#' @param crs A "CRS" object representing the coordinate reference system.
-#' Default is sf::st_crs(4326).
+#' @param crs A `CRS` object representing the coordinate reference system.
+#' Default is `sf::st_crs(4326)`.
 #' @rdname solarnoon
 setMethod("solarnoon", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
@@ -220,13 +220,13 @@ setMethod("solarnoon", signature(crds="SpatialPoints", dateTime="POSIXct"),
 #' @title Compute solar position
 #' @description Calculates the solar position, i.e., the sun's elevation and azimuth, at a specific geographical location and time. 
 #' Methods are available for different object types with geographical coordinates, including:
-#' * "sf": an object of class "sf".
-#' * "matrix": a matrix of coordinates.
-#' * "SpatialPoints": an object of class "SpatialPoints".
+#' * `sf`: an object of class `sf`.
+#' * `matrix`: a matrix of coordinates.
+#' * `SpatialPoints`: an object of class `SpatialPoints`.
 #'
 #' @param crds This represents geographical coordinates. It can be an object of
-#' class "sf", "matrix", or "SpatialPoints".
-#' @param dateTime A POSIXct object representing the date and time. It specifies
+#' class `sf`, `matrix`, or `SpatialPoints`.
+#' @param dateTime A `POSIXct` object representing the date and time. It specifies
 #' the moment for which the solar position is calculated.
 #' @param ... Additional arguments that are passed to methods. 
 #' @return The function returns a matrix with the sun's azimuth and elevation.
@@ -254,8 +254,8 @@ setMethod("solarpos", signature(crds="sf", dateTime="POSIXct"),
               matrix(c(azimuth=res[, 1], elevation=res[, 2]), ncol=2)
           })
 
-#' @param crs A "CRS" object representing the coordinate reference system.
-#' Default is sf::st_crs(4326).
+#' @param crs A `CRS` object representing the coordinate reference system.
+#' Default is `sf::st_crs(4326)`.
 #' @rdname solarpos
 setMethod("solarpos", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
