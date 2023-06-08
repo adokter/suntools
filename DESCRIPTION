@@ -1,5 +1,5 @@
 Package: suntools
-Version: 1.2.0
+Version: 1.0.0
 Date: 2023-06-15
 Title: Tools for Handling Spatial Objects
 Authors@R: c(
