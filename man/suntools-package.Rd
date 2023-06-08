@@ -42,8 +42,9 @@ Authors:
 
 Other contributors:
 \itemize{
+  \item Pieter Huybrechts \email{pieter.huybrechts@inbo.be} (\href{https://orcid.org/0000-0002-6658-6062}{ORCID}) [contributor]
   \item Greg Pelletier [contributor]
-  \item Alexander Tedeschi \email{alexander.tedeschi@cornell.edu} (\href{https://orcid.org/0000-0003-0772-6931}{ORCID}) [contributor]
+  \item Alexander Tedeschi \email{at744@cornell.edu} (\href{https://orcid.org/0000-0003-0772-6931}{ORCID}) [contributor]
 }
 
 }
