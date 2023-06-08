@@ -6,8 +6,8 @@
 <!-- badges: end -->
 
 Suntools is a package derived from the larger `maptools` package, now deprecated. It provides a set of functions
-for calculating the sun's position, sunrise, sunset, polar noon, and crepuscular times
-for any given geographical location and time on earth.
+for calculating sunrise, sunset, and times of dawn and dusk, with flexibility for the various formal definitions. They use algorithms provided by the National Oceanic & Atmospheric Administration (NOAA).
+
 
 Major functions in the package include:
 * `crepuscule()`: Calculates crepuscular times, i.e. the time of dawn or dusk.
