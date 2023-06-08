@@ -1,4 +1,3 @@
-# tests taken from the examples in sun-methods.Rd
 hels <- matrix(c(24.97, 60.17), nrow = 1)
 Hels <- sf::st_as_sf(as.data.frame(hels),
   coords = c(1, 2),
