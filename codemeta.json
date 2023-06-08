@@ -1,0 +1,105 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "identifier": "suntools",
+  "description": "Sun and solar functions and methods formerly provided by the 'maptools' package.",
+  "name": "suntools: Tools for Handling Spatial Objects",
+  "license": "https://spdx.org/licenses/GPL-2.0",
+  "version": "1.0.0",
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "R",
+    "url": "https://r-project.org"
+  },
+  "runtimePlatform": "R version 4.3.0 (2023-04-21)",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Roger",
+      "familyName": "Bivand",
+      "email": "Roger.Bivand@nhh.no",
+      "@id": "https://orcid.org/0000-0003-2392-6140"
+    }
+  ],
+  "contributor": [
+    {
+      "@type": "Person",
+      "givenName": "Adriaan M.",
+      "familyName": "Dokter",
+      "email": "amd427@cornell.edu",
+      "@id": "https://orcid.org/0000-0001-6573-066X"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Sebastian",
+      "familyName": "Luque"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Greg",
+      "familyName": "Pelletier"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Alexander",
+      "familyName": "Tedeschi",
+      "email": "alexander.tedeschi@cornell.edu",
+      "@id": "https://orcid.org/0000-0003-0772-6931"
+    }
+  ],
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Roger",
+      "familyName": "Bivand",
+      "email": "Roger.Bivand@nhh.no",
+      "@id": "https://orcid.org/0000-0003-2392-6140"
+    }
+  ],
+  "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "testthat",
+      "name": "testthat",
+      "version": ">= 3.0.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
+    }
+  ],
+  "softwareRequirements": {
+    "1": {
+      "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 2.10"
+    },
+    "2": {
+      "@type": "SoftwareApplication",
+      "identifier": "methods",
+      "name": "methods"
+    },
+    "3": {
+      "@type": "SoftwareApplication",
+      "identifier": "sf",
+      "name": "sf",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=sf"
+    },
+    "SystemRequirements": null
+  },
+  "fileSize": "55.573KB",
+  "codeRepository": "https://github.com/adokter/suntools",
+  "releaseNotes": "https://github.com/adokter/suntools/blob/master/NEWS.md",
+  "readme": "https://github.com/adokter/suntools/blob/main/README.md",
+  "contIntegration": "https://github.com/adokter/suntools/actions/workflows/R-CMD-check.yaml"
+}

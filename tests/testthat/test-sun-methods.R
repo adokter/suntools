@@ -1,4 +1,3 @@
-# tests taken from the examples in sun-methods.Rd
 hels <- matrix(c(24.97, 60.17), nrow = 1)
 Hels <- sf::st_as_sf(as.data.frame(hels),
   coords = c(1, 2),
@@ -29,6 +28,7 @@ test_that("crepuscule() calculates Astronomical dawn", {
     )
   )
 })
+
 
 test_that("crepuscule() can calculate Nautical dawn", {
   # allow for floating point errors in test
@@ -105,7 +105,7 @@ test_that("solarnoon() can calculate the solar noon", {
 test_that("solarpos can caluclate the solar position", {
   # allow for floating point errors in test
   expect_equal(
-    solarpos(hels, as.POSIXct("2023-05-24 10:29:07", tz = "CEST")),
+    solarpos(hels, as.POSIXct("2023-05-24 10:29:07", tz = "UTC")),
     structure(c(184.478313910191, 50.5446683354915), dim = 1:2)
   )
 })
