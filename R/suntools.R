@@ -1,24 +1,17 @@
-#' Suntools: A package for calculating the sun's position relative to earth
+#' suntools: calculate sun position, sunrise, sunset, solar noon and twilight
 #'
 #' @details
-#' Suntools is a package derived from the larger maptools package, now deprecated. It provides a set of functions
-#' for calculating the sun's position, sunrise, sunset, polar noon, and crepuscular times
-#' for any given geographical location and time on earth.
+#' suntools provides functions for calculating the sun's position, sunrise, sunset,
+#' solar noon, and crepuscular (twilight) times for any given geographical location and time on earth.
 #'
-#' Major functions in the package include:
-#' * `crepuscule()`: Calculates crepuscular times, i.e. the time of dawn or dusk.
-#' * `sunrise()`: Calculates the times of sunrise and sunset at a given geographical location. 
-#' * `solarpos()`: Calculates the solar position, including the sun's elevation and azimuth at a 
-#' specific geographical location and time.
-#' * `solarnoon()`: Calculates solar noon time at a given geographical location.
+#' Main package functions:
+#' * [crepuscule()]: Calculates crepuscular (twilight) times, i.e. the time of dawn or dusk.
+#' * [sunrise()]: Calculates the times of sunrise and sunset at a given location.
+#' * [solarpos()]: Calculates the solar position (elevation and azimuth) at a given location and time.
+#' * [solarnoon()]: Calculates solar noon time at a given location.
 #'
-#' This package is particularly useful for studies related to solar energy,
-#' environmental science, astronomy, and related fields.
-#'
-#' For more details on specific functions, refer to their respective help pages.
-#' 
 #' @references
-#' The original maptools package: \url{https://CRAN.R-project.org/package=maptools}
+#' The original maptools [maptools](https://CRAN.R-project.org/package=maptools) package.
 #' 
 #' @keywords internal
 #' @importFrom sf st_crs st_coordinates st_as_sf

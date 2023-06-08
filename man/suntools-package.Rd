@@ -4,39 +4,44 @@
 \name{suntools-package}
 \alias{suntools}
 \alias{suntools-package}
-\title{Suntools: A package for calculating the sun's position relative to earth}
+\title{suntools: calculate sun position, sunrise, sunset, solar noon and twilight}
 \description{
-Sun and solar functions and methods formerly provided by the 'maptools' package.
+Sun functions and methods formerly provided by the 'maptools' package.
 }
 \details{
-Suntools is a package derived from the larger maptools package, now deprecated. It provides a set of functions
-for calculating the sun's position, sunrise, sunset, polar noon, and crepuscular times
-for any given geographical location and time on earth.
+suntools provides functions for calculating the sun's position, sunrise, sunset,
+solar noon, and crepuscular (twilight) times for any given geographical location and time on earth.
 
-Major functions in the package include:
+Main package functions:
 \itemize{
-\item \code{crepuscule()}: Calculates crepuscular times, i.e. the time of dawn or dusk.
-\item \code{sunrise()}: Calculates the times of sunrise and sunset at a given geographical location.
-\item \code{solarpos()}: Calculates the solar position, including the sun's elevation and azimuth at a
-specific geographical location and time.
-\item \code{solarnoon()}: Calculates solar noon time at a given geographical location.
+\item \code{\link[=crepuscule]{crepuscule()}}: Calculates crepuscular (twilight) times, i.e. the time of dawn or dusk.
+\item \code{\link[=sunrise]{sunrise()}}: Calculates the times of sunrise and sunset at a given location.
+\item \code{\link[=solarpos]{solarpos()}}: Calculates the solar position (elevation and azimuth) at a given location and time.
+\item \code{\link[=solarnoon]{solarnoon()}}: Calculates solar noon time at a given location.
 }
-
-This package is particularly useful for studies related to solar energy,
-environmental science, astronomy, and related fields.
-
-For more details on specific functions, refer to their respective help pages.
 }
 \references{
-The original maptools package: \url{https://CRAN.R-project.org/package=maptools}
+The original maptools \href{https://CRAN.R-project.org/package=maptools}{maptools} package.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/adokter/suntools/}
+  \item Report bugs at \url{https://github.com/adokter/suntools/issues}
+}
+
 }
 \author{
-\strong{Maintainer}: Roger Bivand \email{Roger.Bivand@nhh.no} (\href{https://orcid.org/0000-0003-2392-6140}{ORCID})
+\strong{Maintainer}: Adriaan M. Dokter \email{amd427@cornell.edu} (\href{https://orcid.org/0000-0001-6573-066X}{ORCID}) [contributor]
+
+Authors:
+\itemize{
+  \item Roger Bivand \email{Roger.Bivand@nhh.no} (\href{https://orcid.org/0000-0003-2392-6140}{ORCID})
+  \item Sebastian Luque [contributor]
+}
 
 Other contributors:
 \itemize{
-  \item Adriaan M. Dokter \email{amd427@cornell.edu} (\href{https://orcid.org/0000-0001-6573-066X}{ORCID}) [contributor]
-  \item Sebastian Luque [contributor]
   \item Greg Pelletier [contributor]
   \item Alexander Tedeschi \email{alexander.tedeschi@cornell.edu} (\href{https://orcid.org/0000-0003-0772-6931}{ORCID}) [contributor]
 }
