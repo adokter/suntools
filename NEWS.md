@@ -1,6 +1,6 @@
 # suntools 1.0.0
 
-We're excited to introduce the first release of `suntools`. This package, derived from the deprecated `maptools` package, offers a set of functions to accurately calculate times for sunrise/sunset, dawn, dusk, and to find solar positions. The underlying algorithms are based on research by the National Oceanic & Atmospheric Administration (NOAA).
+We're excited to introduce the first release of `suntools`. This package, derived from the deprecated `maptools` package, offers a set of functions to accurately calculate sun position, sunrise, sunset, solar noon and twilight. The underlying algorithms are based on research by the National Oceanic & Atmospheric Administration (NOAA).
 
 ## Features
 
