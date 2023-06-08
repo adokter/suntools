@@ -65,6 +65,11 @@ for different object types with geographical coordinates, including:
 Input can consist of one location and at least one \code{POSIXct} time, or one \code{POSIXct} time and at least
 one location. \verb{solarDep`` is recycled as needed. Do not use the daylight savings time zone string for supplying }dateTime`, as many OS will not be
 able to properly set it to standard time when needed.
+Compared to NOAA’s original Javascript code, the sunrise and sunset estimates from this translation
+may differ by +/- 1 minute, based on tests using selected locations spanning the globe. This translation does not include calculation of prior or next sunrises/sunsets for locations above the Arctic
+Circle or below the Antarctic Circle.
+NOAA notes that “for latitudes greater than 72 degrees N and S, calculations are accurate to within
+10 minutes. For latitudes less than +/- 72 degrees accuracy is approximately one minute.”
 }
 \examples{
 #Sunset in Ithaca, NY, USA on June 1, 2023

@@ -10,7 +10,7 @@
 #' class `sf`, `matrix`, or `SpatialPoints`.
 #' @param dateTime A `POSIXct` object representing the date and time. It specifies
 #' the moment for which the sunriset is calculated.
-#' @param ... Additional arguments that are passed to methods. 
+#' @param ... Additional arguments that are passed to methods.
 #' @param direction Character, determines whether to calculate the time of sunrise or sunset.
 #' @references
 #' NOAA [sunrise/sunset calculator](https://gml.noaa.gov/grad/solcalc/sunrise.html)
@@ -20,6 +20,11 @@
 #' one location. `solarDep`` is recycled as needed.
 #' Do not use the daylight savings time zone string for supplying `dateTime`, as many OS will not be
 #' able to properly set it to standard time when needed.
+#' Compared to NOAA’s original Javascript code, the sunrise and sunset estimates from this translation
+#' may differ by +/- 1 minute, based on tests using selected locations spanning the globe. This translation does not include calculation of prior or next sunrises/sunsets for locations above the Arctic
+#' Circle or below the Antarctic Circle.
+#' NOAA notes that “for latitudes greater than 72 degrees N and S, calculations are accurate to within
+#' 10 minutes. For latitudes less than +/- 72 degrees accuracy is approximately one minute.”
 #' @param POSIXct.out Logical, if `TRUE`, the result is returned as a `POSIXct` object, otherwise, it is returned as a fraction of a day.
 #' @return The function returns the time of sunriset, either as a fraction of a day
 #' or as a `POSIXct` object, depending on the `POSIXct.out` parameter.
@@ -63,7 +68,7 @@ setMethod("sunriset", signature(crds="sf", dateTime="POSIXct"),
 #' @rdname sunriset
 #' @examples
 #' #Sunset in Ithaca, NY, USA on June 1, 2023
-#' 
+#'
 #'sunriset(
 #'  matrix(c(-76.4511, 42.4800), nrow = 1),
 #'  as.POSIXct("2023-06-01", tz = "America/New_York"),

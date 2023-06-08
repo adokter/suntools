@@ -53,3 +53,13 @@ sunriset(
 #1 0.858628 2023-06-01 20:36:25
 
 ```
+
+## Author(s)
+
+- Sebastian P. Luque ([spluque@gmail.com](mailto:spluque@gmail.com)), translated from Greg Pelletier's code    
+- Greg Pelletier ([gpel461@ecy.wa.gov](mailto:gpel461@ecy.wa.gov)) - Original VBA code available from [Ecology WA Gov: Models & Tools for TMDLs](https://ecology.wa.gov/Research-Data/Data-resources/Models-spreadsheets/Modeling-the-environment/Models-tools-for-TMDLs), who in turn translated it from original Javascript code by NOAA (see Details)   
+- Roger Bivand ([roger.bivand@nhh.no](mailto:roger.bivand@nhh.no)) adapted the code to work with sp classes.
+
+## References
+
+Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
