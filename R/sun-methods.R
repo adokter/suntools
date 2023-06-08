@@ -6,7 +6,7 @@
 #' * `matrix`: a matrix of coordinates.
 #' * `SpatialPoints`: an object of class `SpatialPoints`.
 #'
-#' @param crds This represents geographical coordinates. It can be an object of
+#' @param crds Geographical coordinates. It can be an object of
 #' class `sf`, `matrix`, or `SpatialPoints`.
 #' @param dateTime A `POSIXct` object representing the date and time. It specifies
 #' the moment for which the crepuscular time is calculated.
@@ -55,7 +55,7 @@ setMethod("crepuscule",
 
 #' @rdname crepuscule
 #' @param crs A `CRS` object representing the coordinate reference system.
-#' Default is `sf::st_crs(4326)` which represents WGS84 (World Geodetic System 1984).
+#' Default is `sf::st_crs(4326)` which denotes WGS84 (World Geodetic System 1984).
 setMethod("crepuscule", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
                    crs=sf::st_crs(4326), solarDep,
@@ -84,7 +84,7 @@ setMethod("crepuscule", signature(crds="SpatialPoints", dateTime="POSIXct"),
 #' * `matrix`: a matrix of coordinates.
 #' * `SpatialPoints`: an object of class `SpatialPoints`.
 #'
-#' @param crds This represents geographical coordinates. It can be an object of
+#' @param crds Geographical coordinates. It can be an object of
 #' class `sf`, `matrix`, or `SpatialPoints`.
 #' @param dateTime A `POSIXct` object representing the date and time. It specifies
 #' the moment for which the sunriset is calculated.
@@ -128,7 +128,7 @@ setMethod("sunriset", signature(crds="sf", dateTime="POSIXct"),
           })
 
 #' @param crs A "CRS" object representing the coordinate reference system.
-#' Default is `sf::st_crs(4326)` which represents WGS84 (World Geodetic System 1984).
+#' Default is `sf::st_crs(4326)` which denotes WGS84 (World Geodetic System 1984).
 #' @rdname sunriset
 setMethod("sunriset", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
@@ -158,7 +158,7 @@ setMethod("sunriset", signature(crds="SpatialPoints", dateTime="POSIXct"),
 #' * `matrix`: a matrix of coordinates.
 #' * `SpatialPoints`: an object of class `SpatialPoints`.
 #'
-#' @param crds This represents geographical coordinates. It can be an object of
+#' @param crds Geographical coordinates. It can be an object of
 #' class `sf`, `matrix`, or `SpatialPoints`.
 #' @param dateTime A `POSIXct` object representing the date and time. It specifies
 #' the moment for which the solar noon is calculated.
@@ -198,7 +198,7 @@ setMethod("solarnoon", signature(crds="sf", dateTime="POSIXct"),
           })
 
 #' @param crs A `CRS` object representing the coordinate reference system.
-#' Default is `sf::st_crs(4326)` which represents WGS84 (World Geodetic System 1984).
+#' Default is `sf::st_crs(4326)` which denotes WGS84 (World Geodetic System 1984).
 #' @rdname solarnoon
 setMethod("solarnoon", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
@@ -224,7 +224,7 @@ setMethod("solarnoon", signature(crds="SpatialPoints", dateTime="POSIXct"),
 #' * `matrix`: a matrix of coordinates.
 #' * `SpatialPoints`: an object of class `SpatialPoints`.
 #'
-#' @param crds This represents geographical coordinates. It can be an object of
+#' @param crds Geographical coordinates. It can be an object of
 #' class `sf`, `matrix`, or `SpatialPoints`.
 #' @param dateTime A `POSIXct` object representing the date and time. It specifies
 #' the moment for which the solar position is calculated.
