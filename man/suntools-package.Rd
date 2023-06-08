@@ -21,7 +21,7 @@ Main package functions:
 }
 }
 \references{
-The original maptools \href{https://CRAN.R-project.org/package=maptools}{maptools} package.
+The original \href{https://CRAN.R-project.org/package=maptools}{maptools} package.
 }
 \seealso{
 Useful links:

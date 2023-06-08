@@ -11,7 +11,7 @@
 #' * [solarnoon()]: Calculates solar noon time at a given location.
 #'
 #' @references
-#' The original maptools [maptools](https://CRAN.R-project.org/package=maptools) package.
+#' The original [maptools](https://CRAN.R-project.org/package=maptools) package.
 #' 
 #' @keywords internal
 #' @importFrom sf st_crs st_coordinates st_as_sf
