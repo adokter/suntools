@@ -15,7 +15,7 @@ solar noon, and crepuscular (twilight) times for any given geographical location
 Main package functions:
 \itemize{
 \item \code{\link[=crepuscule]{crepuscule()}}: Calculates crepuscular (twilight) times, i.e. the time of dawn or dusk.
-\item \code{\link[=sunrise]{sunrise()}}: Calculates the times of sunrise and sunset at a given location.
+\item \code{\link[=sunriset]{sunriset()}}: Calculates the times of sunrise and sunset at a given location.
 \item \code{\link[=solarpos]{solarpos()}}: Calculates the solar position (elevation and azimuth) at a given location and time.
 \item \code{\link[=solarnoon]{solarnoon()}}: Calculates solar noon time at a given location.
 }

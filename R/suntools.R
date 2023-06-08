@@ -6,7 +6,7 @@
 #'
 #' Main package functions:
 #' * [crepuscule()]: Calculates crepuscular (twilight) times, i.e. the time of dawn or dusk.
-#' * [sunrise()]: Calculates the times of sunrise and sunset at a given location.
+#' * [sunriset()]: Calculates the times of sunrise and sunset at a given location.
 #' * [solarpos()]: Calculates the solar position (elevation and azimuth) at a given location and time.
 #' * [solarnoon()]: Calculates solar noon time at a given location.
 #'
