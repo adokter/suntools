@@ -62,4 +62,6 @@ sunriset(
 
 ## References
 
+NOAA's Sunrise/Sunset Calculator ([link](https://gml.noaa.gov/grad/solcalc/sunrise.html)) and Solar Position Calculator ([link](https://gml.noaa.gov/grad/solcalc/azel.html)) were developed based on the reference provided below. These calculators incorporate algorithms that adjust for the effects of atmospheric refraction.
+
 Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
