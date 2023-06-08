@@ -53,7 +53,6 @@ setGeneric("crepuscule", function(crds, dateTime, ...) {
     standardGeneric("crepuscule")
 })
 
-#' @description Method for sf objects.
 #' @rdname crepuscule
 setMethod("crepuscule",
           signature(crds="sf", dateTime="POSIXct"),
@@ -84,10 +83,10 @@ setMethod("crepuscule",
               res
           })
 
-#' @description Method for matrix objects. 
+#' @rdname crepuscule
+#' @inheritParams crepuscule
 #' @param crs A "CRS" object representing the coordinate reference system.
 #' Default is sf::st_crs(4326).
-#' @rdname crepuscule
 setMethod("crepuscule", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
                    crs=sf::st_crs(4326), solarDep,
@@ -98,8 +97,8 @@ setMethod("crepuscule", signature(crds="matrix", dateTime="POSIXct"),
                          direction=direction, POSIXct.out=POSIXct.out)
           })
 
-#' @description Method for SpatialPoints objects.
 #' @rdname crepuscule
+#' @inheritParams crepuscule
 setMethod("crepuscule", signature(crds="SpatialPoints", dateTime="POSIXct"),
           function(crds, dateTime, solarDep,
                    direction=c("dawn", "dusk"), POSIXct.out=FALSE) {
