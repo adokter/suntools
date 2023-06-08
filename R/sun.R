@@ -1,3 +1,33 @@
+#' @title Balance coordinates and times
+#'
+#' @description Ensures that the 'crds' and 'dateTime' inputs have the same number of rows.
+#' If 'crds' has a single row but 'dateTime' has multiple rows, 'crds' is replicated to match 'dateTime'.
+#' Similarly, if 'dateTime' has a single row but 'crds' has multiple rows, 'dateTime' is replicated to match 'crds'.
+#' If 'crds' and 'dateTime' have different numbers of rows and neither has just one row, an error is thrown.
+#'
+#' @importFrom sf st_crs st_coordinates st_as_sf
+#' @importFrom methods is
+
+#' @param crds A matrix with longitude and latitude coordinates.
+#' @param dateTime A matrix with year, month, day, timezone, and daylight saving time rows, or a POSIXct time.
+#' @return A list with 'crds' and 'dateTime' matrices, both with the same number of rows.
+#' @keywords internal
+".balanceCrdsTimes" <- function(crds, dateTime)
+{
+    ncrds <- nrow(crds)
+    nTimes <- ifelse(is(dateTime, "POSIXct"), length(dateTime), nrow(dateTime))
+    if (ncrds == 1 && nTimes > 1) {
+        crds <- crds[rep(1, nTimes), ]
+    } else if (ncrds > 1 && nTimes == 1) {
+        dateTime <- if (is(dateTime, "POSIXct")) {
+            dateTime[rep(1, ncrds)]
+        } else dateTime[rep(1, ncrds), ]
+    } else if (ncrds != nTimes) {
+        stop("mismatch in number of coordinates and times")
+    }
+    list(crds=crds, dateTime=dateTime)
+}
+
 ".deg" <- function(radian) 180 * radian / pi
 ".rad" <- function(degree) pi * degree / 180
 
