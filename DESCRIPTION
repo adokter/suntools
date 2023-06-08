@@ -3,11 +3,11 @@ Version: 1.0.0
 Date: 2023-06-15
 Title: Tools for Handling Spatial Objects
 Authors@R: c(
-	person("Roger", "Bivand", role = c("cre", "aut"), email = "Roger.Bivand@nhh.no", comment=c(ORCID="0000-0003-2392-6140")),
-        person("Adriaan M.", "Dokter", role = c("ctb"), email = "amd427@cornell.edu", comment = c(ORCID = "0000-0001-6573-066X")),
-	person("Sebastian", "Luque", role = "ctb"),
+	person("Roger", "Bivand", role = "aut", email = "Roger.Bivand@nhh.no", comment=c(ORCID="0000-0003-2392-6140")),
+        person("Adriaan M.", "Dokter", role = c("ctb", "cre"), email = "amd427@cornell.edu", comment = c(ORCID = "0000-0001-6573-066X")),
+	person("Sebastian", "Luque", role = c("aut","ctb"),
         person("Greg", "Pelletier", role = "ctb"),
-        person("Alexander", "Tedeschi", role = "ctb", email = "alexander.tedeschi@cornell.edu", comment = c(ORCID = "0000-0003-0772-6931")))
+        person("Alexander", "Tedeschi", role = "ctb"  email = "alexander.tedeschi@cornell.edu", comment = c(ORCID = "0000-0003-0772-6931")))
 Encoding: UTF-8
 Depends: R (>= 2.10)
 Imports: methods, sf
