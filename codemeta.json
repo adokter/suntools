@@ -2,8 +2,10 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "suntools",
-  "description": "Sun and solar functions and methods formerly provided by the 'maptools' package.",
-  "name": "suntools: Tools for Handling Spatial Objects",
+  "description": "Sun functions and methods formerly provided by the 'maptools' package.",
+  "name": "suntools: Calculate sun position, sunrise, sunset, solar noon and twilight",
+  "codeRepository": "https://github.com/adokter/suntools/",
+  "issueTracker": "https://github.com/adokter/suntools/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
   "version": "1.0.0",
   "programmingLanguage": {
@@ -11,7 +13,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.3.0 (2023-04-21)",
+  "runtimePlatform": "R version 4.2.3 (2023-03-15)",
   "author": [
     {
       "@type": "Person",
@@ -19,6 +21,11 @@
       "familyName": "Bivand",
       "email": "Roger.Bivand@nhh.no",
       "@id": "https://orcid.org/0000-0003-2392-6140"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Sebastian",
+      "familyName": "Luque"
     }
   ],
   "contributor": [
@@ -28,6 +35,13 @@
       "familyName": "Dokter",
       "email": "amd427@cornell.edu",
       "@id": "https://orcid.org/0000-0001-6573-066X"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Pieter",
+      "familyName": "Huybrechts",
+      "email": "pieter.huybrechts@inbo.be",
+      "@id": "https://orcid.org/0000-0002-6658-6062"
     },
     {
       "@type": "Person",
@@ -43,17 +57,17 @@
       "@type": "Person",
       "givenName": "Alexander",
       "familyName": "Tedeschi",
-      "email": "alexander.tedeschi@cornell.edu",
+      "email": "at744@cornell.edu",
       "@id": "https://orcid.org/0000-0003-0772-6931"
     }
   ],
   "maintainer": [
     {
       "@type": "Person",
-      "givenName": "Roger",
-      "familyName": "Bivand",
-      "email": "Roger.Bivand@nhh.no",
-      "@id": "https://orcid.org/0000-0003-2392-6140"
+      "givenName": "Adriaan M.",
+      "familyName": "Dokter",
+      "email": "amd427@cornell.edu",
+      "@id": "https://orcid.org/0000-0001-6573-066X"
     }
   ],
   "softwareSuggestions": [
@@ -97,8 +111,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "55.573KB",
-  "codeRepository": "https://github.com/adokter/suntools",
+  "fileSize": "64.192KB",
   "releaseNotes": "https://github.com/adokter/suntools/blob/master/NEWS.md",
   "readme": "https://github.com/adokter/suntools/blob/main/README.md",
   "contIntegration": "https://github.com/adokter/suntools/actions/workflows/R-CMD-check.yaml"
