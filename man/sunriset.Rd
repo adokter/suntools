@@ -61,6 +61,11 @@ for different object types with geographical coordinates, including:
 \item \code{SpatialPoints}: an object of class \code{SpatialPoints}.
 }
 }
+\details{
+Input can consist of one location and at least one \code{POSIXct} time, or one \code{POSIXct} time and at least
+one location. \verb{solarDep`` is recycled as needed. Do not use the daylight savings time zone string for supplying }dateTime`, as many OS will not be
+able to properly set it to standard time when needed.
+}
 \examples{
 #Sunset in Ithaca, NY, USA on June 1, 2023
 
@@ -70,4 +75,8 @@ sunriset(
  direction='sunset',
  POSIXct.out=TRUE
 )
+}
+\references{
+NOAA \href{https://gml.noaa.gov/grad/solcalc/sunrise.html}{sunrise/sunset calculator}
+These algorithms include corrections for atmospheric refraction effects.
 }

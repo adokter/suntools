@@ -10,7 +10,14 @@
 #' @param dateTime A `POSIXct` object representing the date and time. It specifies
 #' the moment for which the solar position is calculated.
 #' @param ... Additional arguments that are passed to methods. 
-#' @return The function returns a matrix with the sun's azimuth and elevation.
+#' @references
+#' #'NOAA [solar position calculator](https://gml.noaa.gov/grad/solcalc/azel.html)
+#' These algorithms include corrections for atmospheric refraction effects.
+#' @details
+#' Input can consist of one location and at least one `POSIXct` time, or one `POSIXct` time and at least
+#' one location. #' Do not use the daylight savings time zone string for supplying `dateTime`, as many OS will not be
+#' able to properly set it to standard time when needed.
+#' @return Returns a matrix with the solar azimuth (in degrees from North), and elevation.
 #' @rdname solarpos
 #' @export
 setGeneric("solarpos", function(crds, dateTime, ...) {

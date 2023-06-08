@@ -67,6 +67,11 @@ object types with geographical coordinates, including:
 \item \code{SpatialPoints}: an object of class \code{SpatialPoints}.
 }
 }
+\details{
+Input can consist of one location and at least one \code{POSIXct} time, or one \code{POSIXct} time and at least
+one location. #' Do not use the daylight savings time zone string for supplying \code{dateTime}, as many OS will not be
+able to properly set it to standard time when needed.
+}
 \examples{
 #Civil dawn in Ithaca, NY on June 1, 2023
 

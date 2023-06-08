@@ -15,6 +15,10 @@
 #' @param direction A character string representing the `direction`, either "dawn" or "dusk".
 #' @param POSIXct.out Logical, if TRUE, the result is returned as a `POSIXct` object, 
 #' otherwise, it is returned as a fraction of a day.
+#' @details
+#' Input can consist of one location and at least one `POSIXct` time, or one `POSIXct` time and at least
+#' one location. #' Do not use the daylight savings time zone string for supplying `dateTime`, as many OS will not be
+#' able to properly set it to standard time when needed.
 #' @return The function returns the time of crepuscular light, either as a fraction of a day
 #' or as a `POSIXct` object, depending on the `POSIXct.out` parameter.
 #' @rdname crepuscule

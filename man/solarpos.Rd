@@ -28,7 +28,7 @@ the moment for which the solar position is calculated.}
 Default is \code{sf::st_crs(4326)}.}
 }
 \value{
-The function returns a matrix with the sun's azimuth and elevation.
+Returns a matrix with the solar azimuth (in degrees from North), and elevation.
 }
 \description{
 Calculates the solar position, i.e., the sun's elevation and azimuth, at a specific geographical location and time.
@@ -39,6 +39,11 @@ Methods are available for different object types with geographical coordinates, 
 \item \code{SpatialPoints}: an object of class \code{SpatialPoints}.
 }
 }
+\details{
+Input can consist of one location and at least one \code{POSIXct} time, or one \code{POSIXct} time and at least
+one location. #' Do not use the daylight savings time zone string for supplying \code{dateTime}, as many OS will not be
+able to properly set it to standard time when needed.
+}
 \examples{
 # Solar position in Ithaca, NY, USA on June 1, 2023 at 08:00:00
 
@@ -46,4 +51,8 @@ solarpos(
  matrix(c(-76.4511, 42.4800), nrow = 1),
  as.POSIXct("2023-06-01 08:00:00", tz = "America/New_York")
 )
+}
+\references{
+#'NOAA \href{https://gml.noaa.gov/grad/solcalc/azel.html}{solar position calculator}
+These algorithms include corrections for atmospheric refraction effects.
 }
