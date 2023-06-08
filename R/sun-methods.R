@@ -3,7 +3,7 @@
 #' at a specific geographical location and time. Methods are available for different 
 #' object types with geographical coordinates, including:
 #' * `sf`: an object of class `sf`.
-#' * `matrix`: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in `c(lon, lat)` order. See the examples below.
+#' * `matrix`: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in `c(lon, lat)` order. See the example below.
 #' * `SpatialPoints`: an object of class `SpatialPoints`.
 #'
 #' @param crds Geographical coordinates. It can be an object of
@@ -92,7 +92,7 @@ setMethod("crepuscule", signature(crds="SpatialPoints", dateTime="POSIXct"),
 #' depending on the `direction` parameter. Methods are available
 #' for differet object types with geographical coordinates, including:
 #' * `sf`: an object of class `sf`.
-#' * `matrix`: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in `c(lon, lat)` order. See the examples below.
+#' * `matrix`: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in `c(lon, lat)` order. See the example below.
 #' * `SpatialPoints`: an object of class `SpatialPoints`.
 #'
 #' @param crds Geographical coordinates. It can be an object of
@@ -176,7 +176,7 @@ setMethod("sunriset", signature(crds="SpatialPoints", dateTime="POSIXct"),
 #' at a specific geographical location and time. Methods are available for differet object types with
 #' geographical coordinates, including:
 #' * `sf`: an object of class `sf`.
-#' * `matrix`: a matrix of coordinates.
+#' * `matrix`: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in `c(lon, lat)` order. See the example below.
 #' * `SpatialPoints`: an object of class `SpatialPoints`.
 #'
 #' @param crds Geographical coordinates. It can be an object of
@@ -251,7 +251,7 @@ setMethod("solarnoon", signature(crds="SpatialPoints", dateTime="POSIXct"),
 #' @description Calculates the solar position, i.e., the sun's elevation and azimuth, at a specific geographical location and time. 
 #' Methods are available for different object types with geographical coordinates, including:
 #' * `sf`: an object of class `sf`.
-#' * `matrix`: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in `c(lon, lat)` order. See the examples below.
+#' * `matrix`: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in `c(lon, lat)` order. See the example below.
 #' * `SpatialPoints`: an object of class `SpatialPoints`.
 #'
 #' @param crds Geographical coordinates. It can be an object of
