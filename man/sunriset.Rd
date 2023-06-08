@@ -54,10 +54,10 @@ or as a \code{POSIXct} object, depending on the \code{POSIXct.out} parameter.
 \description{
 Calculates sunrise or sunset at a specific geographical location and time.
 depending on the \code{direction} parameter. Methods are available
-for differet object types with geographical coordinates, including:
+for different object types with geographical coordinates, including:
 \itemize{
 \item \code{sf}: an object of class \code{sf}.
-\item \code{matrix}: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in \code{c(lon, lat)} order. See the examples below.
+\item \code{matrix}: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in \code{c(lon, lat)} order. See the example below.
 \item \code{SpatialPoints}: an object of class \code{SpatialPoints}.
 }
 }

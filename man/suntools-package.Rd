@@ -38,6 +38,7 @@ Other contributors:
   \item Adriaan M. Dokter \email{amd427@cornell.edu} (\href{https://orcid.org/0000-0001-6573-066X}{ORCID}) [contributor]
   \item Sebastian Luque [contributor]
   \item Greg Pelletier [contributor]
+  \item Alexander Tedeschi \email{alexander.tedeschi@cornell.edu} (\href{https://orcid.org/0000-0003-0772-6931}{ORCID}) [contributor]
 }
 
 }

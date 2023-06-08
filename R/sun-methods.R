@@ -90,7 +90,7 @@ setMethod("crepuscule", signature(crds="SpatialPoints", dateTime="POSIXct"),
 #' @title Calculate sunrise/sunset
 #' @description Calculates sunrise or sunset at a specific geographical location and time.
 #' depending on the `direction` parameter. Methods are available
-#' for differet object types with geographical coordinates, including:
+#' for different object types with geographical coordinates, including:
 #' * `sf`: an object of class `sf`.
 #' * `matrix`: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in `c(lon, lat)` order. See the example below.
 #' * `SpatialPoints`: an object of class `SpatialPoints`.
@@ -150,7 +150,6 @@ setMethod("sunriset", signature(crds="sf", dateTime="POSIXct"),
 #'  direction='sunset',
 #'  POSIXct.out=TRUE
 #')
-
 setMethod("sunriset", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
                    crs=sf::st_crs(4326),
@@ -173,7 +172,7 @@ setMethod("sunriset", signature(crds="SpatialPoints", dateTime="POSIXct"),
 
 #' @title Compute solar noon time
 #' @description Calculates the solar noon, i.e., the time when the sun is at its highest point in the sky. 
-#' at a specific geographical location and time. Methods are available for differet object types with
+#' at a specific geographical location and time. Methods are available for different object types with
 #' geographical coordinates, including:
 #' * `sf`: an object of class `sf`.
 #' * `matrix`: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in `c(lon, lat)` order. See the example below.
@@ -229,7 +228,6 @@ setMethod("solarnoon", signature(crds="sf", dateTime="POSIXct"),
 #'  as.POSIXct("2023-06-01", tz = "America/New_York"),
 #'  POSIXct.out=TRUE
 #')
-
 setMethod("solarnoon", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
                    crs=sf::st_crs(4326),
