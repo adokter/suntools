@@ -84,7 +84,6 @@ setMethod("crepuscule",
           })
 
 #' @rdname crepuscule
-#' @inheritParams crepuscule
 #' @param crs A "CRS" object representing the coordinate reference system.
 #' Default is sf::st_crs(4326).
 setMethod("crepuscule", signature(crds="matrix", dateTime="POSIXct"),
@@ -98,7 +97,6 @@ setMethod("crepuscule", signature(crds="matrix", dateTime="POSIXct"),
           })
 
 #' @rdname crepuscule
-#' @inheritParams crepuscule
 setMethod("crepuscule", signature(crds="SpatialPoints", dateTime="POSIXct"),
           function(crds, dateTime, solarDep,
                    direction=c("dawn", "dusk"), POSIXct.out=FALSE) {
@@ -131,7 +129,6 @@ setGeneric("sunriset", function(crds, dateTime, ...) {
     standardGeneric("sunriset")
 })
 
-#' @description Method for sf objects.
 #' @rdname sunriset
 setMethod("sunriset", signature(crds="sf", dateTime="POSIXct"),
           function(crds, dateTime, direction=c("sunrise", "sunset"),
@@ -160,7 +157,6 @@ setMethod("sunriset", signature(crds="sf", dateTime="POSIXct"),
               res
           })
 
-#' @description Method for matrix objects. 
 #' @param crs A "CRS" object representing the coordinate reference system.
 #' Default is sf::st_crs(4326).
 #' @rdname sunriset
@@ -174,7 +170,6 @@ setMethod("sunriset", signature(crds="matrix", dateTime="POSIXct"),
                        direction=direction, POSIXct.out=POSIXct.out)
           })
 
-#' @description Method for SpatialPoints objects.
 #' @rdname sunriset
 setMethod("sunriset", signature(crds="SpatialPoints", dateTime="POSIXct"),
           function(crds, dateTime, direction=c("sunrise", "sunset"),
@@ -207,7 +202,6 @@ setGeneric("solarnoon", function(crds, dateTime, ...) {
     standardGeneric("solarnoon")
 })
 
-#' @description Method for sf objects.
 #' @rdname solarnoon
 setMethod("solarnoon", signature(crds="sf", dateTime="POSIXct"),
           function(crds, dateTime, POSIXct.out=FALSE) {
@@ -233,7 +227,6 @@ setMethod("solarnoon", signature(crds="sf", dateTime="POSIXct"),
               res
           })
 
-#' @description Method for matrix objects. 
 #' @param crs A "CRS" object representing the coordinate reference system.
 #' Default is sf::st_crs(4326).
 #' @rdname solarnoon
@@ -246,7 +239,6 @@ setMethod("solarnoon", signature(crds="matrix", dateTime="POSIXct"),
                         POSIXct.out=POSIXct.out)
           })
 
-#' @description Method for SpatialPoints objects.
 #' @rdname solarnoon
 setMethod("solarnoon", signature(crds="SpatialPoints", dateTime="POSIXct"),
           function(crds, dateTime, POSIXct.out=FALSE) {
@@ -274,7 +266,6 @@ setGeneric("solarpos", function(crds, dateTime, ...) {
     standardGeneric("solarpos")
 })
 
-#' @description Method for sf objects.
 #' @rdname solarpos
 setMethod("solarpos", signature(crds="sf", dateTime="POSIXct"),
           function(crds, dateTime, ...) {
@@ -293,7 +284,6 @@ setMethod("solarpos", signature(crds="sf", dateTime="POSIXct"),
               matrix(c(azimuth=res[, 1], elevation=res[, 2]), ncol=2)
           })
 
-#' @description Method for matrix objects. 
 #' @param crs A "CRS" object representing the coordinate reference system.
 #' Default is sf::st_crs(4326).
 #' @rdname solarpos
@@ -304,7 +294,6 @@ setMethod("solarpos", signature(crds="matrix", dateTime="POSIXct"),
               solarpos(crds.sf, dateTime=dateTime)
           })
 
-#' @description Method for SpatialPoints objects.
 #' @rdname solarpos
 setMethod("solarpos", signature(crds="SpatialPoints", dateTime="POSIXct"),
           function(crds, dateTime, ...) {

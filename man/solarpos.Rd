@@ -38,10 +38,4 @@ Methods are available for different object types with geographical coordinates, 
 \item "matrix": a matrix of coordinates.
 \item "SpatialPoints": an object of class "SpatialPoints".
 }
-
-Method for sf objects.
-
-Method for matrix objects.
-
-Method for SpatialPoints objects.
 }
