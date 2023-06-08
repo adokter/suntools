@@ -46,6 +46,7 @@ setMethod("sunriset", signature(crds="sf", dateTime="POSIXct"),
                        tz=time.ll$tz) + secs
                   res <- data.frame(day_frac=res, time=Pct)
               }
+              rownames(res) <- 1:nrow(res)
               res
           })
 

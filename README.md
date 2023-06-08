@@ -11,7 +11,7 @@ for any given geographical location and time on earth.
 
 Major functions in the package include:
 * `crepuscule()`: Calculates crepuscular times, i.e. the time of dawn or dusk.
-* `sunrise()`: Calculates the times of sunrise and sunset at a given geographical location. 
+* `sunriset()`: Calculates the times of sunrise and sunset at a given geographical location. 
 * `solarpos()`: Calculates the solar position, including the sun's elevation and azimuth at a 
 specific geographical location and time.
 * `solarnoon()`: Calculates solar noon time at a given geographical location.
