@@ -16,7 +16,7 @@ solarpos(crds, dateTime, ...)
 \S4method{solarpos}{SpatialPoints,POSIXct}(crds, dateTime, ...)
 }
 \arguments{
-\item{crds}{This represents geographical coordinates. It can be an object of
+\item{crds}{Geographical coordinates. It can be an object of
 class \code{sf}, \code{matrix}, or \code{SpatialPoints}.}
 
 \item{dateTime}{A \code{POSIXct} object representing the date and time. It specifies
@@ -35,7 +35,15 @@ Calculates the solar position, i.e., the sun's elevation and azimuth, at a speci
 Methods are available for different object types with geographical coordinates, including:
 \itemize{
 \item \code{sf}: an object of class \code{sf}.
-\item \code{matrix}: a matrix of coordinates.
+\item \code{matrix}: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in \code{c(lon, lat)} order. See the examples below.
 \item \code{SpatialPoints}: an object of class \code{SpatialPoints}.
 }
+}
+\examples{
+# Solar position in Ithaca, NY, USA on June 1, 2023 at 08:00:00
+
+solarpos(
+ matrix(c(-76.4511, 42.4800), nrow = 1),
+ as.POSIXct("2023-06-01 08:00:00", tz = "America/New_York")
+)
 }

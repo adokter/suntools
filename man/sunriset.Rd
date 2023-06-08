@@ -32,7 +32,7 @@ sunriset(crds, dateTime, ...)
 )
 }
 \arguments{
-\item{crds}{This represents geographical coordinates. It can be an object of
+\item{crds}{Geographical coordinates. It can be an object of
 class \code{sf}, \code{matrix}, or \code{SpatialPoints}.}
 
 \item{dateTime}{A \code{POSIXct} object representing the date and time. It specifies
@@ -45,7 +45,7 @@ the moment for which the sunriset is calculated.}
 \item{POSIXct.out}{Logical, if \code{TRUE}, the result is returned as a \code{POSIXct} object, otherwise, it is returned as a fraction of a day.}
 
 \item{crs}{A "CRS" object representing the coordinate reference system.
-Default is \code{sf::st_crs(4326)}.}
+Default is \code{sf::st_crs(4326)} which denotes WGS84 (World Geodetic System 1984).}
 }
 \value{
 The function returns the time of sunriset, either as a fraction of a day
@@ -57,7 +57,17 @@ depending on the \code{direction} parameter. Methods are available
 for differet object types with geographical coordinates, including:
 \itemize{
 \item \code{sf}: an object of class \code{sf}.
-\item \code{matrix}: a matrix of coordinates.
+\item \code{matrix}: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in \code{c(lon, lat)} order. See the examples below.
 \item \code{SpatialPoints}: an object of class \code{SpatialPoints}.
 }
+}
+\examples{
+Sunset in Ithaca, NY, USA on June 1, 2023
+
+sunriset(
+ matrix(c(-76.4511, 42.4800), nrow = 1),
+ as.POSIXct("2023-06-01", tz = "America/New_York"),
+ direction='sunset',
+ POSIXct.out=TRUE
+)
 }

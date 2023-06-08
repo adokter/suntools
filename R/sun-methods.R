@@ -3,7 +3,7 @@
 #' at a specific geographical location and time. Methods are available for different 
 #' object types with geographical coordinates, including:
 #' * `sf`: an object of class `sf`.
-#' * `matrix`: a matrix of coordinates.
+#' * `matrix`: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in `c(lon, lat)` order. See the examples below.
 #' * `SpatialPoints`: an object of class `SpatialPoints`.
 #'
 #' @param crds Geographical coordinates. It can be an object of
@@ -56,6 +56,17 @@ setMethod("crepuscule",
 #' @rdname crepuscule
 #' @param crs A `CRS` object representing the coordinate reference system.
 #' Default is `sf::st_crs(4326)` which denotes WGS84 (World Geodetic System 1984).
+#' @examples
+#'#Civil dawn in Ithaca, NY on June 1, 2023
+#' 
+#'crepuscule(
+#'        matrix(c(-76.4511, 42.4800), nrow = 1),
+#'        as.POSIXct("2023-06-01", tz = "America/New_York"),
+#'        solarDep = 6,
+#'        direction = "dawn",
+#'        POSIXct.out = TRUE
+#'      )
+#' 
 setMethod("crepuscule", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
                    crs=sf::st_crs(4326), solarDep,
@@ -81,7 +92,7 @@ setMethod("crepuscule", signature(crds="SpatialPoints", dateTime="POSIXct"),
 #' depending on the `direction` parameter. Methods are available
 #' for differet object types with geographical coordinates, including:
 #' * `sf`: an object of class `sf`.
-#' * `matrix`: a matrix of coordinates.
+#' * `matrix`: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in `c(lon, lat)` order. See the examples below.
 #' * `SpatialPoints`: an object of class `SpatialPoints`.
 #'
 #' @param crds Geographical coordinates. It can be an object of
@@ -130,6 +141,16 @@ setMethod("sunriset", signature(crds="sf", dateTime="POSIXct"),
 #' @param crs A "CRS" object representing the coordinate reference system.
 #' Default is `sf::st_crs(4326)` which denotes WGS84 (World Geodetic System 1984).
 #' @rdname sunriset
+#' @examples
+#' Sunset in Ithaca, NY, USA on June 1, 2023
+#' 
+#'sunriset(
+#'  matrix(c(-76.4511, 42.4800), nrow = 1),
+#'  as.POSIXct("2023-06-01", tz = "America/New_York"),
+#'  direction='sunset',
+#'  POSIXct.out=TRUE
+#')
+
 setMethod("sunriset", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
                    crs=sf::st_crs(4326),
@@ -200,6 +221,15 @@ setMethod("solarnoon", signature(crds="sf", dateTime="POSIXct"),
 #' @param crs A `CRS` object representing the coordinate reference system.
 #' Default is `sf::st_crs(4326)` which denotes WGS84 (World Geodetic System 1984).
 #' @rdname solarnoon
+#' @examples
+#'# Solar noon in Ithaca, NY, USA on June 1, 2023
+#' 
+#'solarnoon(
+#'  matrix(c(-76.4511, 42.4800), nrow = 1),
+#'  as.POSIXct("2023-06-01", tz = "America/New_York"),
+#'  POSIXct.out=TRUE
+#')
+
 setMethod("solarnoon", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
                    crs=sf::st_crs(4326),
@@ -221,7 +251,7 @@ setMethod("solarnoon", signature(crds="SpatialPoints", dateTime="POSIXct"),
 #' @description Calculates the solar position, i.e., the sun's elevation and azimuth, at a specific geographical location and time. 
 #' Methods are available for different object types with geographical coordinates, including:
 #' * `sf`: an object of class `sf`.
-#' * `matrix`: a matrix of coordinates.
+#' * `matrix`: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in `c(lon, lat)` order. See the examples below.
 #' * `SpatialPoints`: an object of class `SpatialPoints`.
 #'
 #' @param crds Geographical coordinates. It can be an object of
@@ -257,6 +287,13 @@ setMethod("solarpos", signature(crds="sf", dateTime="POSIXct"),
 #' @param crs A `CRS` object representing the coordinate reference system.
 #' Default is `sf::st_crs(4326)`.
 #' @rdname solarpos
+#' @examples
+#' # Solar position in Ithaca, NY, USA on June 1, 2023 at 08:00:00
+#' 
+#' solarpos(
+#'  matrix(c(-76.4511, 42.4800), nrow = 1),
+#'  as.POSIXct("2023-06-01 08:00:00", tz = "America/New_York")
+#' )
 setMethod("solarpos", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
                    crs=sf::st_crs(4326), ...) {

@@ -16,7 +16,7 @@ solarnoon(crds, dateTime, ...)
 \S4method{solarnoon}{SpatialPoints,POSIXct}(crds, dateTime, POSIXct.out = FALSE)
 }
 \arguments{
-\item{crds}{This represents geographical coordinates. It can be an object of
+\item{crds}{Geographical coordinates. It can be an object of
 class \code{sf}, \code{matrix}, or \code{SpatialPoints}.}
 
 \item{dateTime}{A \code{POSIXct} object representing the date and time. It specifies
@@ -27,7 +27,7 @@ the moment for which the solar noon is calculated.}
 \item{POSIXct.out}{Logical, if \code{TRUE}, the result is returned as a \code{POSIXct} object, otherwise, it is returned as a fraction of a day.}
 
 \item{crs}{A \code{CRS} object representing the coordinate reference system.
-Default is \code{sf::st_crs(4326)}.}
+Default is \code{sf::st_crs(4326)} which denotes WGS84 (World Geodetic System 1984).}
 }
 \value{
 The function returns the time of solar noon, either as a fraction of a day
@@ -42,4 +42,13 @@ geographical coordinates, including:
 \item \code{matrix}: a matrix of coordinates.
 \item \code{SpatialPoints}: an object of class \code{SpatialPoints}.
 }
+}
+\examples{
+# Solar noon in Ithaca, NY, USA on June 1, 2023
+
+solarnoon(
+ matrix(c(-76.4511, 42.4800), nrow = 1),
+ as.POSIXct("2023-06-01", tz = "America/New_York"),
+ POSIXct.out=TRUE
+)
 }
