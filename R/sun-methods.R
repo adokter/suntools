@@ -55,7 +55,7 @@ setMethod("crepuscule",
 
 #' @rdname crepuscule
 #' @param crs A `CRS` object representing the coordinate reference system.
-#' Default is `sf::st_crs(4326)`.
+#' Default is `sf::st_crs(4326)` which represents WGS84 (World Geodetic System 1984).
 setMethod("crepuscule", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
                    crs=sf::st_crs(4326), solarDep,
@@ -128,7 +128,7 @@ setMethod("sunriset", signature(crds="sf", dateTime="POSIXct"),
           })
 
 #' @param crs A "CRS" object representing the coordinate reference system.
-#' Default is `sf::st_crs(4326)`.
+#' Default is `sf::st_crs(4326)` which represents WGS84 (World Geodetic System 1984).
 #' @rdname sunriset
 setMethod("sunriset", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
@@ -198,7 +198,7 @@ setMethod("solarnoon", signature(crds="sf", dateTime="POSIXct"),
           })
 
 #' @param crs A `CRS` object representing the coordinate reference system.
-#' Default is `sf::st_crs(4326)`.
+#' Default is `sf::st_crs(4326)` which represents WGS84 (World Geodetic System 1984).
 #' @rdname solarnoon
 setMethod("solarnoon", signature(crds="matrix", dateTime="POSIXct"),
           function(crds, dateTime,
