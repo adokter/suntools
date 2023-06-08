@@ -30,4 +30,21 @@ For more details on specific functions, refer to their respective help pages.
 \references{
 The original maptools package: \url{https://CRAN.R-project.org/package=maptools}
 }
+\author{
+\strong{Maintainer}: Adriaan M. Dokter \email{amd427@cornell.edu} (\href{https://orcid.org/0000-0001-6573-066X}{ORCID}) [contributor]
+
+Authors:
+\itemize{
+  \item Roger Bivand \email{Roger.Bivand@nhh.no} (\href{https://orcid.org/0000-0003-2392-6140}{ORCID})
+  \item Sebastian Luque [contributor]
+}
+
+Other contributors:
+\itemize{
+  \item Pieter Huybrechts \email{pieter.huybrechts@inbo.be} (\href{https://orcid.org/0000-0002-6658-6062}{ORCID}) [contributor]
+  \item Greg Pelletier [contributor]
+  \item Alexander Tedeschi \email{at744@cornell.edu} (\href{https://orcid.org/0000-0003-0772-6931}{ORCID}) [contributor]
+}
+
+}
 \keyword{internal}
