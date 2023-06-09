@@ -6,7 +6,7 @@ Authors@R: c(
 	person("Roger", "Bivand", role = "aut", email = "Roger.Bivand@nhh.no", comment=c(ORCID="0000-0003-2392-6140")),
         person("Adriaan M.", "Dokter", role = c("ctb", "cre"), email = "amd427@cornell.edu", comment = c(ORCID = "0000-0001-6573-066X")),
         person("Pieter", "Huybrechts", role = "ctb", email = "pieter.huybrechts@inbo.be", comment = c(ORCID = "0000-0002-6658-6062")),
-	person("Sebastian", "Luque", role = c("aut", "ctb")),
+	person("Sebastian", "Luque", role = "aut"),
         person("Greg", "Pelletier", role = "ctb"),
         person("Alexander", "Tedeschi", role = "ctb", email = "at744@cornell.edu", comment = c(ORCID = "0000-0003-0772-6931")))
 Encoding: UTF-8

@@ -21,17 +21,16 @@ environmental science, astronomy, and related fields.
 For more details on specific functions, refer to their respective help pages.
 
 ## Installation
-
-You can install the development version of suntools from [GitHub](https://github.com/) with:
-
-``` r
-devtools::install_github("adokter/suntools")
-```
-
 You can install the released version of suntools from [CRAN](https://CRAN.R-project.org/) with:
 
 ``` r
 install.packages("suntools")
+```
+
+Alternatively, you can install the development version from [GitHub](https://github.com/) with:
+
+``` r
+devtools::install_github("adokter/suntools")
 ```
 
 ## Example
@@ -55,12 +54,15 @@ sunriset(
 
 ## Author(s)
 
-- Sebastian P. Luque ([spluque@gmail.com](mailto:spluque@gmail.com)), translated from Greg Pelletier's code    
 - Greg Pelletier ([gpel461@ecy.wa.gov](mailto:gpel461@ecy.wa.gov)) - Original VBA code available from [Ecology WA Gov: Models & Tools for TMDLs](https://ecology.wa.gov/Research-Data/Data-resources/Models-spreadsheets/Modeling-the-environment/Models-tools-for-TMDLs), who in turn translated it from original Javascript code by NOAA (see Details)   
+- Sebastian P. Luque ([spluque@gmail.com](mailto:spluque@gmail.com)), translated from Greg Pelletier's code    
 - Roger Bivand ([roger.bivand@nhh.no](mailto:roger.bivand@nhh.no)) adapted the code to work with sp classes.
+- Adriaan M. Dokter ([amd427@cornell.edu](mailto:amd427@cornell.edu)) adapted the code to work with sf classes.
+- Alexander Tedeschi ([amd427@cornell.edu](mailto:amd427@cornell.edu)) made package roxygen compatible and prepared standalone release.
+- Pieter Huijbrechts ([amd427@cornell.edu](mailto:amd427@cornell.edu)) set up continuous integration and automated tests.
 
 ## References
-
-NOAA's [Sunrise/Sunset Calculator](https://gml.noaa.gov/grad/solcalc/sunrise.html) and [Solar Position Calculator](https://gml.noaa.gov/grad/solcalc/azel.html) were developed based on the reference provided below. These calculators incorporate algorithms that adjust for the effects of atmospheric refraction.
-
-Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
+This package uses algorithms provided by the National Oceanic & Atmospheric Administration (NOAA), for more information see
+* NOAA's [Sunrise/Sunset Calculator](https://gml.noaa.gov/grad/solcalc/sunrise.html)
+* NOAA's [Solar Position Calculator](https://gml.noaa.gov/grad/solcalc/azel.html)
+* Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
