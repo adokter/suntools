@@ -11,7 +11,10 @@
 #' * [solarnoon()]: Calculates solar noon time at a given location.
 #'
 #' @references
-#' The original [maptools](https://CRAN.R-project.org/package=maptools) package.
+#' This package uses algorithms provided by the National Oceanic & Atmospheric Administration (NOAA), for more information see
+#' * NOAA's [Sunrise/Sunset Calculator](https://gml.noaa.gov/grad/solcalc/sunrise.html)
+#' * NOAA's [Solar Position Calculator](https://gml.noaa.gov/grad/solcalc/azel.html)
+#' * Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
 #' 
 #' @keywords internal
 #' @importFrom sf st_crs st_coordinates st_as_sf
