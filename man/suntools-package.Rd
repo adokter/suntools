@@ -21,7 +21,12 @@ Main package functions:
 }
 }
 \references{
-The original \href{https://CRAN.R-project.org/package=maptools}{maptools} package.
+This package uses algorithms provided by the National Oceanic & Atmospheric Administration (NOAA), for more information see
+\itemize{
+\item NOAA's \href{https://gml.noaa.gov/grad/solcalc/sunrise.html}{Sunrise/Sunset Calculator}
+\item NOAA's \href{https://gml.noaa.gov/grad/solcalc/azel.html}{Solar Position Calculator}
+\item Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
+}
 }
 \seealso{
 Useful links:
@@ -37,7 +42,7 @@ Useful links:
 Authors:
 \itemize{
   \item Roger Bivand \email{Roger.Bivand@nhh.no} (\href{https://orcid.org/0000-0003-2392-6140}{ORCID})
-  \item Sebastian Luque [contributor]
+  \item Sebastian Luque
 }
 
 Other contributors:
