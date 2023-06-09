@@ -20,11 +20,12 @@ solarnoon(crds, dateTime, ...)
 class \code{sf}, \code{matrix}, or \code{SpatialPoints}.}
 
 \item{dateTime}{A \code{POSIXct} object representing the date and time. It specifies
-the moment for which the solar noon is calculated.}
+the moment for which the crepuscular time is calculated.}
 
 \item{...}{Additional arguments that are passed to methods.}
 
-\item{POSIXct.out}{Logical, if \code{TRUE}, the result is returned as a \code{POSIXct} object, otherwise, it is returned as a fraction of a day.}
+\item{POSIXct.out}{Logical, if TRUE, the result is returned as a \code{POSIXct} object,
+otherwise, it is returned as a fraction of a day.}
 
 \item{crs}{A \code{CRS} object representing the coordinate reference system.
 Default is \code{sf::st_crs(4326)} which denotes WGS84 (World Geodetic System 1984).}
@@ -44,8 +45,8 @@ geographical coordinates, including:
 }
 }
 \details{
-Input can consist of one location and at least one \verb{POSIXct`` time, or one }POSIXct`` time and at least
-one location. #' Do not use the daylight savings time zone string for supplying \code{dateTime}, as many OS will not be
+Input can consist of one location and at least one \code{POSIXct} time, or one \code{POSIXct} time and at least
+one location. Do not use the daylight savings time zone string for supplying \code{dateTime}, as many OS will not be
 able to properly set it to standard time when needed.
 NOAA notes that “for latitudes greater than 72 degrees N and S, calculations are accurate to within
 10 minutes. For latitudes less than +/- 72 degrees accuracy is approximately one minute.”

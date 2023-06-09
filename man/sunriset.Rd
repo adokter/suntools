@@ -36,13 +36,14 @@ sunriset(crds, dateTime, ...)
 class \code{sf}, \code{matrix}, or \code{SpatialPoints}.}
 
 \item{dateTime}{A \code{POSIXct} object representing the date and time. It specifies
-the moment for which the sunriset is calculated.}
+the moment for which the crepuscular time is calculated.}
 
 \item{...}{Additional arguments that are passed to methods.}
 
 \item{direction}{Character, determines whether to calculate the time of sunrise or sunset.}
 
-\item{POSIXct.out}{Logical, if \code{TRUE}, the result is returned as a \code{POSIXct} object, otherwise, it is returned as a fraction of a day.}
+\item{POSIXct.out}{Logical, if TRUE, the result is returned as a \code{POSIXct} object,
+otherwise, it is returned as a fraction of a day.}
 
 \item{crs}{A "CRS" object representing the coordinate reference system.
 Default is \code{sf::st_crs(4326)} which denotes WGS84 (World Geodetic System 1984).}
@@ -63,7 +64,8 @@ for different object types with geographical coordinates, including:
 }
 \details{
 Input can consist of one location and at least one \code{POSIXct} time, or one \code{POSIXct} time and at least
-one location. \verb{solarDep`` is recycled as needed. Do not use the daylight savings time zone string for supplying }dateTime`, as many OS will not be
+one location. \code{solarDep} is recycled as needed.
+Do not use the daylight savings time zone string for supplying \code{dateTime}, as many OS will not be
 able to properly set it to standard time when needed.
 Compared to NOAA’s original Javascript code, the sunrise and sunset estimates from this translation
 may differ by +/- 1 minute, based on tests using selected locations spanning the globe. This translation does not include calculation of prior or next sunrises/sunsets for locations above the Arctic

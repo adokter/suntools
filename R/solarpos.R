@@ -5,13 +5,9 @@
 #' * `matrix`: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in `c(lon, lat)` order. See the example below.
 #' * `SpatialPoints`: an object of class `SpatialPoints`.
 #'
-#' @param crds Geographical coordinates. It can be an object of
-#' class `sf`, `matrix`, or `SpatialPoints`.
-#' @param dateTime A `POSIXct` object representing the date and time. It specifies
-#' the moment for which the solar position is calculated.
-#' @param ... Additional arguments that are passed to methods. 
+#' @inheritParams crepuscule
 #' @references
-#' #'NOAA [solar position calculator](https://gml.noaa.gov/grad/solcalc/azel.html)
+#' NOAA [solar position calculator](https://gml.noaa.gov/grad/solcalc/azel.html)
 #' These algorithms include corrections for atmospheric refraction effects.
 #' @details
 #' Input can consist of one location and at least one `POSIXct` time, or one `POSIXct` time and at least

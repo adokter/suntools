@@ -20,7 +20,7 @@ solarpos(crds, dateTime, ...)
 class \code{sf}, \code{matrix}, or \code{SpatialPoints}.}
 
 \item{dateTime}{A \code{POSIXct} object representing the date and time. It specifies
-the moment for which the solar position is calculated.}
+the moment for which the crepuscular time is calculated.}
 
 \item{...}{Additional arguments that are passed to methods.}
 
@@ -55,6 +55,6 @@ solarpos(
 )
 }
 \references{
-#'NOAA \href{https://gml.noaa.gov/grad/solcalc/azel.html}{solar position calculator}
+NOAA \href{https://gml.noaa.gov/grad/solcalc/azel.html}{solar position calculator}
 These algorithms include corrections for atmospheric refraction effects.
 }
