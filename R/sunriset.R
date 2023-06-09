@@ -17,7 +17,7 @@
 #' These algorithms include corrections for atmospheric refraction effects.
 #' @details
 #' Input can consist of one location and at least one `POSIXct` time, or one `POSIXct` time and at least
-#' one location. `solarDep`` is recycled as needed.
+#' one location. `solarDep` is recycled as needed.
 #' Do not use the daylight savings time zone string for supplying `dateTime`, as many OS will not be
 #' able to properly set it to standard time when needed.
 #' Compared to NOAA’s original Javascript code, the sunrise and sunset estimates from this translation
