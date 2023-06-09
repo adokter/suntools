@@ -3,6 +3,8 @@ New package submissions.
 
 This package takes over several sun functions of R package maptools, which is to be deprecated.
 
+Please synchronize release with simultaneously submitted new version of maptools, which will deprecate the sun methods now in suntools
+
 * made methods compatible with sp evolution and deprecation
 * new method for sf class
 * Core methods from `maptools/R/sun-methods.R` are retained in their original form and split into separate scripts in for easier maintenance and readability.
