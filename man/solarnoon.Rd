@@ -19,8 +19,7 @@ solarnoon(crds, dateTime, ...)
 \item{crds}{Geographical coordinates. It can be an object of
 class \code{sf}, \code{matrix}, or \code{SpatialPoints}.}
 
-\item{dateTime}{A \code{POSIXct} object representing the date and time. It specifies
-the moment for which the solar noon is calculated.}
+\item{dateTime}{A \code{POSIXct} object representing the date and time.}
 
 \item{...}{Additional arguments that are passed to methods.}
 
@@ -35,20 +34,40 @@ or as a \code{POSIXct} object, depending on the \code{POSIXct.out} parameter.
 }
 \description{
 Calculates the solar noon, i.e., the time when the sun is at its highest point in the sky.
-at a specific geographical location and time. Methods are available for different object types with
-geographical coordinates, including:
+at a specific geographical location and time.
+}
+\details{
+Methods are available for different classes of geographical coordinates, including:
 \itemize{
 \item \code{sf}: an object of class \code{sf}.
 \item \code{matrix}: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in \code{c(lon, lat)} order. See the example below.
 \item \code{SpatialPoints}: an object of class \code{SpatialPoints}.
+Input can consist of one location and at least one \code{POSIXct} time, or one \code{POSIXct}
+time and at least one location. \code{solarDep} is recycled as needed.
+Do not use the daylight savings time zone string for supplying \code{dateTime}, as many OS
+will not be able to properly set it to standard time when needed.
 }
-}
-\details{
-Input can consist of one location and at least one \verb{POSIXct`` time, or one }POSIXct`` time and at least
-one location. #' Do not use the daylight savings time zone string for supplying \code{dateTime}, as many OS will not be
-able to properly set it to standard time when needed.
-NOAA notes that “for latitudes greater than 72 degrees N and S, calculations are accurate to within
-10 minutes. For latitudes less than +/- 72 degrees accuracy is approximately one minute.”
+
+Compared to NOAA’s original Javascript code, the sunrise and sunset estimates from this translation
+may differ by +/- 1 minute, based on tests using selected locations spanning the globe.
+This translation does not include calculation of prior or next sunrises/sunsets for locations above the Arctic
+Circle or below the Antarctic Circle.
+
+The calculations in the NOAA Sunrise/Sunset and Solar Position Calculators are based on equations
+from Astronomical Algorithms, by Jean Meeus. The sunrise and sunset results are theoretically accurate
+to within a minute for locations between +/- 72° latitude, and within 10 minutes outside of those latitudes.
+However, due to variations in atmospheric composition, temperature, pressure and conditions, observed values may vary from calculations.
+
+For the purposes of these calculators the current Gregorian calendar is extrapolated backward through time.
+When using a date before 15 October, 1582, you will need to correct for this. The year preceding year 1 in
+the calendar is year zero (0). The year before that is -1. The approximations used in these programs are very
+good for years between 1800 and 2100. Results should still be sufficiently accurate for the range
+from -1000 to 3000. Outside of this range, results may be given, but the potential for error is higher.
+
+For sunrise and sunset calculations, we assume 0.833° of atmospheric refraction.
+In the solar position calculator, atmospheric refraction is modeled as:
+
+TODO, FILL OUT EQUATIONS AT https://gml.noaa.gov/grad/solcalc/calcdetails.html
 }
 \examples{
 # Solar noon in Ithaca, NY, USA on June 1, 2023
@@ -58,4 +77,11 @@ solarnoon(
  as.POSIXct("2023-06-01", tz = "America/New_York"),
  POSIXct.out=TRUE
 )
+}
+\references{
+\itemize{
+\item NOAA's \href{https://gml.noaa.gov/grad/solcalc/azel.html}{solar position calculator}
+These algorithms include corrections for atmospheric refraction effects.
+\item NOAA \href{https://gml.noaa.gov/grad/solcalc/calcdetails.html}{Solar Calculations Details}
+}
 }
