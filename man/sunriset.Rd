@@ -51,7 +51,7 @@ The function returns the time of sunriset, either as a fraction of a day
 or as a \code{POSIXct} object, depending on the \code{POSIXct.out} parameter.
 }
 \description{
-Calculates sunrise or sunset at a specific geographical location and time.
+Calculates sunrise or sunset at a specific geographical location and time
 depending on the \code{direction} parameter.
 }
 \details{

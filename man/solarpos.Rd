@@ -30,7 +30,8 @@ Default is \code{sf::st_crs(4326)}.}
 Returns a matrix with the solar azimuth (in degrees from North), and elevation.
 }
 \description{
-Calculates the solar position, i.e., the sun's elevation and azimuth, at a specific geographical location and time.
+Calculates the solar position, i.e., the sun's elevation and azimuth,
+at a specific geographical location and time.
 }
 \details{
 Methods are available for different classes of geographical coordinates, including:

@@ -42,6 +42,8 @@ class \code{sf}, \code{matrix}, or \code{SpatialPoints}.}
 
 \item{...}{Additional arguments that are passed to methods.}
 
+\item{solarDep}{A numerical value representing the solar depression angle.}
+
 \item{direction}{Character, determines whether to calculate the time of sunrise or sunset.}
 
 \item{POSIXct.out}{Logical, if \code{TRUE}, the result is returned as a \code{POSIXct} object, otherwise, it is returned as a fraction of a day.}
@@ -54,7 +56,7 @@ The function returns the time of crepuscular light, either as a fraction of a da
 or as a \code{POSIXct} object, depending on the \code{POSIXct.out} parameter.
 }
 \description{
-Calculates the crepuscular time, i.e., the time of dawn or dusk,
+Calculates the crepuscular time, i.e., the time of dawn or dusk
 at a specific geographical location and time.
 }
 \details{

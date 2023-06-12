@@ -33,7 +33,7 @@ The function returns the time of solar noon, either as a fraction of a day
 or as a \code{POSIXct} object, depending on the \code{POSIXct.out} parameter.
 }
 \description{
-Calculates the solar noon, i.e., the time when the sun is at its highest point in the sky.
+Calculates the solar noon, i.e., the time when the sun is at its highest point in the sky
 at a specific geographical location and time.
 }
 \details{
