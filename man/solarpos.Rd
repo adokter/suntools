@@ -50,6 +50,9 @@ may differ by +/- 1 minute, based on tests using selected locations spanning the
 This translation does not include calculation of prior or next sunrises/sunsets for locations above the Arctic
 Circle or below the Antarctic Circle.
 
+Details for the calculations are provided by NOAA \href{https://gml.noaa.gov/grad/solcalc/calcdetails.html}{here},
+which we repeat below as a reference.
+
 The calculations in the NOAA Sunrise/Sunset and Solar Position Calculators are based on equations
 from Astronomical Algorithms, by Jean Meeus. The sunrise and sunset results are theoretically accurate
 to within a minute for locations between +/- 72° latitude, and within 10 minutes outside of those latitudes.
@@ -64,7 +67,13 @@ from -1000 to 3000. Outside of this range, results may be given, but the potenti
 For sunrise and sunset calculations, we assume 0.833° of atmospheric refraction.
 In the solar position calculator, atmospheric refraction is modeled as:
 
-TODO, FILL OUT EQUATIONS AT https://gml.noaa.gov/grad/solcalc/calcdetails.html
+TODO, FILL OUT EQUATIONS AT
+
+The effects of the atmosphere vary with atmospheric pressure, humidity and other variables.
+Therefore the solar position calculations presented here are approximate. Errors in sunrise
+and sunset times can be expected to increase the further away you are from the equator,
+because the sun rises and sets at a very shallow angle. Small variations in the atmosphere
+can have a larger effect.
 }
 \examples{
 # Solar position in Ithaca, NY, USA on June 1, 2023 at 08:00:00
