@@ -1,24 +1,13 @@
 #' @title Compute solar position
-#' @description Calculates the solar position, i.e., the sun's elevation and azimuth, at a specific geographical location and time. 
-#' Methods are available for different object types with geographical coordinates, including:
-#' * `sf`: an object of class `sf`.
-#' * `matrix`: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in `c(lon, lat)` order. See the example below.
-#' * `SpatialPoints`: an object of class `SpatialPoints`.
-#'
-#' @param crds Geographical coordinates. It can be an object of
-#' class `sf`, `matrix`, or `SpatialPoints`.
-#' @param dateTime A `POSIXct` object representing the date and time. It specifies
-#' the moment for which the solar position is calculated.
-#' @param ... Additional arguments that are passed to methods. 
+#' @description Calculates the solar position, i.e., the sun's elevation and azimuth,
+#' at a specific geographical location and time.
+#' @inheritParams sunriset
+#' @inherit sunriset details references
 #' @references
-#' #'NOAA [solar position calculator](https://gml.noaa.gov/grad/solcalc/azel.html)
+#' * Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
+#' * NOAA's [solar position calculator](https://gml.noaa.gov/grad/solcalc/azel.html).
 #' These algorithms include corrections for atmospheric refraction effects.
-#' @details
-#' Input can consist of one location and at least one `POSIXct` time, or one `POSIXct` time and at least
-#' one location. Do not use the daylight savings time zone string for supplying `dateTime`, as many OS will not be
-#' able to properly set it to standard time when needed.
-#' NOAA notes that “for latitudes greater than 72 degrees N and S, calculations are accurate to within
-#' 10 minutes. For latitudes less than +/- 72 degrees accuracy is approximately one minute.”
+#' * NOAA's [solar calculations details](https://gml.noaa.gov/grad/solcalc/calcdetails.html)
 #' @return Returns a matrix with the solar azimuth (in degrees from North), and elevation.
 #' @rdname solarpos
 #' @export
@@ -49,7 +38,7 @@ setMethod("solarpos", signature(crds="sf", dateTime="POSIXct"),
 #' @rdname solarpos
 #' @examples
 #' # Solar position in Ithaca, NY, USA on June 1, 2023 at 08:00:00
-#' 
+#'
 #' solarpos(
 #'  matrix(c(-76.4511, 42.4800), nrow = 1),
 #'  as.POSIXct("2023-06-01 08:00:00", tz = "America/New_York")

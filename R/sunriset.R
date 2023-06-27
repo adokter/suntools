@@ -1,31 +1,65 @@
 #' @title Calculate sunrise/sunset
-#' @description Calculates sunrise or sunset at a specific geographical location and time.
-#' depending on the `direction` parameter. Methods are available
-#' for different object types with geographical coordinates, including:
+#' @description Calculates sunrise or sunset at a specific geographical location and time
+#' depending on the `direction` parameter.
+#' @param crds Geographical coordinates. It can be an object of
+#' class `sf`, `matrix`, or `SpatialPoints`.
+#' @param dateTime A `POSIXct` object representing the date and time.
+#' @param direction Character, determines whether to calculate the time of sunrise or sunset.
+#' @param POSIXct.out Logical, if `TRUE`, the result is returned as a `POSIXct` object, otherwise, it is returned as a fraction of a day.
+#' @param ... Additional arguments that are passed to methods.
+#' @references
+#' * Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
+#' * NOAA's [sunrise/sunset calculator](https://gml.noaa.gov/grad/solcalc/sunrise.html).
+#' These algorithms include corrections for atmospheric refraction effects.
+#' * NOAA's [solar calculations details](https://gml.noaa.gov/grad/solcalc/calcdetails.html)
+#' @details
+#' Methods are available for different classes of geographical coordinates, including:
 #' * `sf`: an object of class `sf`.
 #' * `matrix`: An unnamed matrix of coordinates, with each row containing a pair of geographical coordinates in `c(lon, lat)` order. See the example below.
 #' * `SpatialPoints`: an object of class `SpatialPoints`.
+#' Input can consist of one location and at least one `POSIXct` time, or one `POSIXct`
+#' time and at least one location. `solarDep` is recycled as needed.
+#' Do not use the daylight savings time zone string for supplying `dateTime`, as many OS
+#' will not be able to properly set it to standard time when needed.
 #'
-#' @param crds Geographical coordinates. It can be an object of
-#' class `sf`, `matrix`, or `SpatialPoints`.
-#' @param dateTime A `POSIXct` object representing the date and time. It specifies
-#' the moment for which the sunriset is calculated.
-#' @param ... Additional arguments that are passed to methods.
-#' @param direction Character, determines whether to calculate the time of sunrise or sunset.
-#' @references
-#' NOAA [sunrise/sunset calculator](https://gml.noaa.gov/grad/solcalc/sunrise.html)
-#' These algorithms include corrections for atmospheric refraction effects.
-#' @details
-#' Input can consist of one location and at least one `POSIXct` time, or one `POSIXct` time and at least
-#' one location. `solarDep` is recycled as needed.
-#' Do not use the daylight savings time zone string for supplying `dateTime`, as many OS will not be
-#' able to properly set it to standard time when needed.
 #' Compared to NOAA’s original Javascript code, the sunrise and sunset estimates from this translation
-#' may differ by +/- 1 minute, based on tests using selected locations spanning the globe. This translation does not include calculation of prior or next sunrises/sunsets for locations above the Arctic
+#' may differ by +/- 1 minute, based on tests using selected locations spanning the globe.
+#' This translation does not include calculation of prior or next sunrises/sunsets for locations above the Arctic
 #' Circle or below the Antarctic Circle.
-#' NOAA notes that “for latitudes greater than 72 degrees N and S, calculations are accurate to within
-#' 10 minutes. For latitudes less than +/- 72 degrees accuracy is approximately one minute.”
-#' @param POSIXct.out Logical, if `TRUE`, the result is returned as a `POSIXct` object, otherwise, it is returned as a fraction of a day.
+#'
+#' ## Solar position calculation
+#'
+#' Details for the calculations are provided by NOAA [here](https://gml.noaa.gov/grad/solcalc/calcdetails.html),
+#' which we repeat below as a reference.
+#'
+#' The calculations in the NOAA Sunrise/Sunset and Solar Position Calculators are based on equations
+#' from Astronomical Algorithms, by Jean Meeus. The sunrise and sunset results are theoretically accurate
+#' to within a minute for locations between +/- 72° latitude, and within 10 minutes outside of those latitudes.
+#' However, due to variations in atmospheric composition, temperature, pressure and conditions, observed values may vary from calculations.
+#'
+#' For the purposes of these calculators the current Gregorian calendar is extrapolated backward through time.
+#' When using a date before 15 October, 1582, you will need to correct for this. The year preceding year 1 in
+#' the calendar is year zero (0). The year before that is -1. The approximations used in these programs are very
+#' good for years between 1800 and 2100. Results should still be sufficiently accurate for the range
+#' from -1000 to 3000. Outside of this range, results may be given, but the potential for error is higher.
+#'
+#' ## Atmospheric refraction correction
+#'
+#' For sunrise and sunset calculations, we assume 0.833° of atmospheric refraction.
+#' In the solar position calculator, atmospheric refraction is modeled as:
+#'
+#'  | Solar Elevation | Approximate Atmospheric Refraction Correction (°) |
+#'  | --- | --- |
+#'  | 85° to 90° | 0 |
+#'  | 5° to 85° | \eqn{\frac{1}{3600}\left(\frac{58.1}{\tan(h)} - \frac{0.07}{\tan^3(h)} + \frac{0.000086}{\tan^5(h)}\right)} |
+#'  | -0.575° to 5° | \eqn{\frac{1}{3600}\left(1735 - 518.2 h + 103.4 h^2 - 12.79 h^3 + 0.711 h^4\right)} |
+#'  | < -0.575° | \eqn{\frac{1}{3600}\left(\frac{-20.774}{\tan(h)}\right)} |
+#'
+#' The effects of the atmosphere vary with atmospheric pressure, humidity and other variables.
+#' Therefore the solar position calculations presented here are approximate. Errors in sunrise
+#' and sunset times can be expected to increase the further away you are from the equator,
+#' because the sun rises and sets at a very shallow angle. Small variations in the atmosphere
+#' can have a larger effect.
 #' @return The function returns the time of sunriset, either as a fraction of a day
 #' or as a `POSIXct` object, depending on the `POSIXct.out` parameter.
 #' @rdname sunriset
