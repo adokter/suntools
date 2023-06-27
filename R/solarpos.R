@@ -5,9 +5,9 @@
 #' @inherit sunriset details references
 #' @references
 #' * Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
-#' * NOAA's [solar position calculator](https://gml.noaa.gov/grad/solcalc/azel.html)
+#' * NOAA's [solar position calculator](https://gml.noaa.gov/grad/solcalc/azel.html).
 #' These algorithms include corrections for atmospheric refraction effects.
-#' * NOAA [Solar Calculations Details](https://gml.noaa.gov/grad/solcalc/calcdetails.html)
+#' * NOAA's [solar calculations details](https://gml.noaa.gov/grad/solcalc/calcdetails.html)
 #' @return Returns a matrix with the solar azimuth (in degrees from North), and elevation.
 #' @rdname solarpos
 #' @export

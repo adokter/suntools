@@ -9,9 +9,9 @@
 #' @param ... Additional arguments that are passed to methods.
 #' @references
 #' * Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
-#' * NOAA [sunrise/sunset calculator](https://gml.noaa.gov/grad/solcalc/sunrise.html)
+#' * NOAA's [sunrise/sunset calculator](https://gml.noaa.gov/grad/solcalc/sunrise.html).
 #' These algorithms include corrections for atmospheric refraction effects.
-#' * NOAA [Solar Calculations Details](https://gml.noaa.gov/grad/solcalc/calcdetails.html)
+#' * NOAA's [solar calculations details](https://gml.noaa.gov/grad/solcalc/calcdetails.html)
 #' @details
 #' Methods are available for different classes of geographical coordinates, including:
 #' * `sf`: an object of class `sf`.
@@ -27,6 +27,8 @@
 #' This translation does not include calculation of prior or next sunrises/sunsets for locations above the Arctic
 #' Circle or below the Antarctic Circle.
 #'
+#' ## Solar position calculation
+#'
 #' Details for the calculations are provided by NOAA [here](https://gml.noaa.gov/grad/solcalc/calcdetails.html),
 #' which we repeat below as a reference.
 #'
@@ -41,10 +43,12 @@
 #' good for years between 1800 and 2100. Results should still be sufficiently accurate for the range
 #' from -1000 to 3000. Outside of this range, results may be given, but the potential for error is higher.
 #'
+#' ## Atmospheric refraction correction
+#'
 #' For sunrise and sunset calculations, we assume 0.833° of atmospheric refraction.
 #' In the solar position calculator, atmospheric refraction is modeled as:
 #'
-#'  | **Solar Elevation** | **Approximate Atmospheric Refraction Correction (°)** |
+#'  | Solar Elevation | Approximate Atmospheric Refraction Correction (°) |
 #'  | --- | --- |
 #'  | 85° to 90° | 0 |
 #'  | 5° to 85° | \eqn{\frac{1}{3600}\left(\frac{58.1}{\tan(h)} - \frac{0.07}{\tan^3(h)} + \frac{0.000086}{\tan^5(h)}\right)} |

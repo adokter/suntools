@@ -75,6 +75,7 @@ Compared to NOAA’s original Javascript code, the sunrise and sunset estimates 
 may differ by +/- 1 minute, based on tests using selected locations spanning the globe.
 This translation does not include calculation of prior or next sunrises/sunsets for locations above the Arctic
 Circle or below the Antarctic Circle.
+\subsection{Solar position calculation}{
 
 Details for the calculations are provided by NOAA \href{https://gml.noaa.gov/grad/solcalc/calcdetails.html}{here},
 which we repeat below as a reference.
@@ -89,10 +90,13 @@ When using a date before 15 October, 1582, you will need to correct for this. Th
 the calendar is year zero (0). The year before that is -1. The approximations used in these programs are very
 good for years between 1800 and 2100. Results should still be sufficiently accurate for the range
 from -1000 to 3000. Outside of this range, results may be given, but the potential for error is higher.
+}
+
+\subsection{Atmospheric refraction correction}{
 
 For sunrise and sunset calculations, we assume 0.833° of atmospheric refraction.
 In the solar position calculator, atmospheric refraction is modeled as:\tabular{ll}{
-   \strong{Solar Elevation} \tab \strong{Approximate Atmospheric Refraction Correction (°)} \cr
+   Solar Elevation \tab Approximate Atmospheric Refraction Correction (°) \cr
    85° to 90° \tab 0 \cr
    5° to 85° \tab \eqn{\frac{1}{3600}\left(\frac{58.1}{\tan(h)} - \frac{0.07}{\tan^3(h)} + \frac{0.000086}{\tan^5(h)}\right)} \cr
    -0.575° to 5° \tab \eqn{\frac{1}{3600}\left(1735 - 518.2 h + 103.4 h^2 - 12.79 h^3 + 0.711 h^4\right)} \cr
@@ -105,6 +109,7 @@ Therefore the solar position calculations presented here are approximate. Errors
 and sunset times can be expected to increase the further away you are from the equator,
 because the sun rises and sets at a very shallow angle. Small variations in the atmosphere
 can have a larger effect.
+}
 }
 \examples{
 #Civil dawn in Ithaca, NY on June 1, 2023
@@ -121,8 +126,8 @@ crepuscule(
 \references{
 \itemize{
 \item Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
-\item NOAA \href{https://gml.noaa.gov/grad/solcalc/sunrise.html}{sunrise/sunset calculator}
+\item NOAA's \href{https://gml.noaa.gov/grad/solcalc/sunrise.html}{sunrise/sunset calculator}.
 These algorithms include corrections for atmospheric refraction effects.
-\item NOAA \href{https://gml.noaa.gov/grad/solcalc/calcdetails.html}{Solar Calculations Details}
+\item NOAA's \href{https://gml.noaa.gov/grad/solcalc/calcdetails.html}{solar calculations details}
 }
 }
