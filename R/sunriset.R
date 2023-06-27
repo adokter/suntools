@@ -92,9 +92,10 @@ setMethod("sunriset", signature(crds="sf", dateTime="POSIXct"),
                   else Pct <- as.POSIXct(format(dateTime, "%Y-%m-%d"),
                        tz=time.ll$tz) + secs
                   res <- data.frame(day_frac=res, time=Pct)
-              }
+              } else {
               res <- as.data.frame(res, col.names=c('day_frac'))
-              res
+              }
+              return(res)
           })
 
 #' @param crs A "CRS" object representing the coordinate reference system.

@@ -33,10 +33,12 @@ setMethod("solarnoon", signature(crds="sf", dateTime="POSIXct"),
                   else Pct <- as.POSIXct(format(dateTime, "%Y-%m-%d"),
                        tz=time.ll$tz) + secs
                   res <- data.frame(day_frac=res, time=Pct)
-              }
+              } else {
               res <- res['day_frac']
-              res
-          })
+            }
+            return(res)
+           }
+          )
 
 #' @param crs A `CRS` object representing the coordinate reference system.
 #' Default is `sf::st_crs(4326)` which denotes WGS84 (World Geodetic System 1984).
