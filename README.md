@@ -67,18 +67,6 @@ This package uses algorithms provided by the National Oceanic & Atmospheric Admi
 * NOAA'S [Solar Calculation Details](https://gml.noaa.gov/grad/solcalc/calcdetails.html)
 * NOAA'S [Atmospheric Refraction Effects](https://gml.noaa.gov/grad/solcalc/calcdetails.html)
 
-For sunrise and sunset calculations, we assume 0.833° of atmospheric refraction. In the solar position calculator, atmospheric refraction is modeled as:
-
-| Solar Elevation | Approximate Atmospheric Refraction Correction (°) |
-| --- | --- |
-| 85° to 90° | 0 |
-| 5° to 85° | $\frac{1}{3600}\left(\frac{58.1}{\tan(h)} - \frac{0.07}{\tan^3(h)} + \frac{0.000086}{\tan^5(h)}\right)$ |
-| -0.575° to 5° | $\frac{1}{3600}\left(1735 - 518.2h + 103.4h^2 - 12.79h^3 + 0.711h^4\right)$ |
-| < -0.575° | $\frac{1}{3600}\left(\frac{-20.774}{\tan(h)}\right)$ |
-
-The effects of the atmosphere vary with atmospheric pressure, humidity and other variables. Therefore the solar position calculations presented here are approximate. Errors in sunrise and sunset times can be expected to increase the further away you are from the equator, because the sun rises and sets at a very shallow angle. Small variations in the atmosphere can have a larger effect.
-
-
 
 
 

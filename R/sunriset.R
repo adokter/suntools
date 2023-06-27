@@ -43,7 +43,12 @@
 #' For sunrise and sunset calculations, we assume 0.833° of atmospheric refraction.
 #' In the solar position calculator, atmospheric refraction is modeled as:
 #'
-#' TODO, FILL OUT EQUATIONS AT
+#'  | **Solar Elevation** | **Approximate Atmospheric Refraction Correction (°)** |
+#'  | --- | --- |
+#'  | 85° to 90° | 0 |
+#'  | 5° to 85° | \eqn{\frac{1}{3600}\left(\frac{58.1}{\tan(h)} - \frac{0.07}{\tan^3(h)} + \frac{0.000086}{\tan^5(h)}\right)} |
+#'  | -0.575° to 5° | \eqn{\frac{1}{3600}\left(1735 - 518.2h + 103.4h^2 - 12.79h^3 + 0.711h^4\right)} |
+#'  | < -0.575° | \eqn{\frac{1}{3600}\left(\frac{-20.774}{\tan(h)}\right)} |
 #'
 #' The effects of the atmosphere vary with atmospheric pressure, humidity and other variables.
 #' Therefore the solar position calculations presented here are approximate. Errors in sunrise

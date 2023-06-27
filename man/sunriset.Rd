@@ -86,9 +86,14 @@ good for years between 1800 and 2100. Results should still be sufficiently accur
 from -1000 to 3000. Outside of this range, results may be given, but the potential for error is higher.
 
 For sunrise and sunset calculations, we assume 0.833° of atmospheric refraction.
-In the solar position calculator, atmospheric refraction is modeled as:
+In the solar position calculator, atmospheric refraction is modeled as:\tabular{ll}{
+   \strong{Solar Elevation} \tab \strong{Approximate Atmospheric Refraction Correction (°)} \cr
+   85° to 90° \tab 0 \cr
+   5° to 85° \tab \eqn{\frac{1}{3600}\left(\frac{58.1}{\tan(h)} - \frac{0.07}{\tan^3(h)} + \frac{0.000086}{\tan^5(h)}\right)} \cr
+   -0.575° to 5° \tab \eqn{\frac{1}{3600}\left(1735 - 518.2h + 103.4h^2 - 12.79h^3 + 0.711h^4\right)} \cr
+   < -0.575° \tab \eqn{\frac{1}{3600}\left(\frac{-20.774}{\tan(h)}\right)} \cr
+}
 
-TODO, FILL OUT EQUATIONS AT
 
 The effects of the atmosphere vary with atmospheric pressure, humidity and other variables.
 Therefore the solar position calculations presented here are approximate. Errors in sunrise
