@@ -95,7 +95,7 @@ In the solar position calculator, atmospheric refraction is modeled as:\tabular{
    \strong{Solar Elevation} \tab \strong{Approximate Atmospheric Refraction Correction (°)} \cr
    85° to 90° \tab 0 \cr
    5° to 85° \tab \eqn{\frac{1}{3600}\left(\frac{58.1}{\tan(h)} - \frac{0.07}{\tan^3(h)} + \frac{0.000086}{\tan^5(h)}\right)} \cr
-   -0.575° to 5° \tab \eqn{\frac{1}{3600}\left(1735 - 518.2h + 103.4h^2 - 12.79h^3 + 0.711h^4\right)} \cr
+   -0.575° to 5° \tab \eqn{\frac{1}{3600}\left(1735 - 518.2 h + 103.4 h^2 - 12.79 h^3 + 0.711 h^4\right)} \cr
    < -0.575° \tab \eqn{\frac{1}{3600}\left(\frac{-20.774}{\tan(h)}\right)} \cr
 }
 
@@ -120,6 +120,7 @@ crepuscule(
 }
 \references{
 \itemize{
+\item Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
 \item NOAA \href{https://gml.noaa.gov/grad/solcalc/sunrise.html}{sunrise/sunset calculator}
 These algorithms include corrections for atmospheric refraction effects.
 \item NOAA \href{https://gml.noaa.gov/grad/solcalc/calcdetails.html}{Solar Calculations Details}

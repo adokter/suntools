@@ -4,6 +4,7 @@
 #' @inheritParams sunriset
 #' @inherit sunriset details references
 #' @references
+#' * Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
 #' * NOAA's [solar position calculator](https://gml.noaa.gov/grad/solcalc/azel.html)
 #' These algorithms include corrections for atmospheric refraction effects.
 #' * NOAA [Solar Calculations Details](https://gml.noaa.gov/grad/solcalc/calcdetails.html)

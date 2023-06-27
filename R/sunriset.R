@@ -8,6 +8,7 @@
 #' @param POSIXct.out Logical, if `TRUE`, the result is returned as a `POSIXct` object, otherwise, it is returned as a fraction of a day.
 #' @param ... Additional arguments that are passed to methods.
 #' @references
+#' * Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
 #' * NOAA [sunrise/sunset calculator](https://gml.noaa.gov/grad/solcalc/sunrise.html)
 #' These algorithms include corrections for atmospheric refraction effects.
 #' * NOAA [Solar Calculations Details](https://gml.noaa.gov/grad/solcalc/calcdetails.html)
@@ -47,7 +48,7 @@
 #'  | --- | --- |
 #'  | 85° to 90° | 0 |
 #'  | 5° to 85° | \eqn{\frac{1}{3600}\left(\frac{58.1}{\tan(h)} - \frac{0.07}{\tan^3(h)} + \frac{0.000086}{\tan^5(h)}\right)} |
-#'  | -0.575° to 5° | \eqn{\frac{1}{3600}\left(1735 - 518.2h + 103.4h^2 - 12.79h^3 + 0.711h^4\right)} |
+#'  | -0.575° to 5° | \eqn{\frac{1}{3600}\left(1735 - 518.2 h + 103.4 h^2 - 12.79 h^3 + 0.711 h^4\right)} |
 #'  | < -0.575° | \eqn{\frac{1}{3600}\left(\frac{-20.774}{\tan(h)}\right)} |
 #'
 #' The effects of the atmosphere vary with atmospheric pressure, humidity and other variables.

@@ -65,8 +65,3 @@ This package uses algorithms provided by the National Oceanic & Atmospheric Admi
 * NOAA's [Sunrise/Sunset Calculator](https://gml.noaa.gov/grad/solcalc/sunrise.html)
 * NOAA's [Solar Position Calculator](https://gml.noaa.gov/grad/solcalc/azel.html)
 * NOAA'S [Solar Calculation Details](https://gml.noaa.gov/grad/solcalc/calcdetails.html)
-* NOAA'S [Atmospheric Refraction Effects](https://gml.noaa.gov/grad/solcalc/calcdetails.html)
-
-
-
-
