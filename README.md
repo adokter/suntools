@@ -60,12 +60,12 @@ sunriset(
 ## References
 
 This package uses algorithms provided by the National Oceanic & Atmospheric Administration (NOAA), for more information see
+
+* Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
 * NOAA's [Sunrise/Sunset Calculator](https://gml.noaa.gov/grad/solcalc/sunrise.html)
 * NOAA's [Solar Position Calculator](https://gml.noaa.gov/grad/solcalc/azel.html)
 * NOAA'S [Solar Calculation Details](https://gml.noaa.gov/grad/solcalc/calcdetails.html)
-* Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
-
-* Atmospheric Refraction Effects
+* NOAA'S [Atmospheric Refraction Effects](https://gml.noaa.gov/grad/solcalc/calcdetails.html)
 
 For sunrise and sunset calculations, we assume 0.833° of atmospheric refraction. In the solar position calculator, atmospheric refraction is modeled as:
 
