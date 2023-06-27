@@ -58,8 +58,27 @@ sunriset(
 - Alexander Tedeschi ([at744@cornell.edu](mailto:at744@cornell.edu)) made tests and documentation roxygen compatible
 
 ## References
+
 This package uses algorithms provided by the National Oceanic & Atmospheric Administration (NOAA), for more information see
 * NOAA's [Sunrise/Sunset Calculator](https://gml.noaa.gov/grad/solcalc/sunrise.html)
 * NOAA's [Solar Position Calculator](https://gml.noaa.gov/grad/solcalc/azel.html)
 * NOAA'S [Solar Calculation Details](https://gml.noaa.gov/grad/solcalc/calcdetails.html)
 * Meeus, J. (1991) Astronomical Algorithms. Willmann-Bell, Inc.
+
+* Atmospheric Refraction Effects
+
+For sunrise and sunset calculations, we assume 0.833° of atmospheric refraction. In the solar position calculator, atmospheric refraction is modeled as:
+
+Solar Elevation | Approximate Atmospheric Refraction Correction (°)
+--- | ---
+85° to 90° | 0
+5° to 85° | 1/3600*((58.1/tan(h))-(0.07/tan^3(h))+(0.000086/tan^5(h)))
+-0.575° to 5° | 1/3600*(1735-518.2*h+103.4*h^2-12.79*h^3+0.711*h^4)
+< -0.575° | 1/3600*(-20.774/tan(h))
+
+The effects of the atmosphere vary with atmospheric pressure, humidity and other variables. Therefore the solar position calculations presented here are approximate. Errors in sunrise and sunset times can be expected to increase the further away you are from the equator, because the sun rises and sets at a very shallow angle. Small variations in the atmosphere can have a larger effect.
+
+
+
+
+
