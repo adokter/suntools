@@ -36,6 +36,7 @@ setMethod("solarnoon", signature(crds="sf", dateTime="POSIXct"),
               } else {
               res <- res['day_frac']
             }
+            rownames(res) <- NULL
             return(res)
            }
           )

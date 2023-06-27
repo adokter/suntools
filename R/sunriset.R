@@ -95,6 +95,7 @@ setMethod("sunriset", signature(crds="sf", dateTime="POSIXct"),
               } else {
               res <- as.data.frame(res, col.names=c('day_frac'))
               }
+              rownames(res) <- NULL
               return(res)
           })
 
