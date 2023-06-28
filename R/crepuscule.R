@@ -4,8 +4,8 @@
 #' @inheritParams sunriset
 #' @param solarDep A numerical value representing the solar depression angle.
 #' @inherit sunriset details references
-#' @return The function returns the time of crepuscular light, either as a fraction of a day
-#' or as a `POSIXct` object, depending on the `POSIXct.out` parameter.
+#' @returns data.frame with the time of crepuscular light as a fraction of a day; if POSIXct.out=TRUE returns an additional 
+#' POSIXct timestamp column (default = TRUE)
 #' @rdname crepuscule
 #' @export
 setGeneric("crepuscule", function(crds, dateTime, ...) {

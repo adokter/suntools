@@ -4,8 +4,8 @@
 #' @inheritParams sunriset
 #' @inherit sunriset details
 #' @inherit solarpos references
-#' @return The function returns the time of solar noon, either as a fraction of a day
-#' or as a `POSIXct` object, depending on the `POSIXct.out` parameter.
+#' @returns  data.frame with the time of solar noon as a fraction of a day; if POSIXct.out=TRUE returns an additional 
+#' POSIXct timestamp column (default = TRUE)
 #' @rdname solarnoon
 #' @export
 setGeneric("solarnoon", function(crds, dateTime, ...) {

@@ -60,8 +60,9 @@
 #' and sunset times can be expected to increase the further away you are from the equator,
 #' because the sun rises and sets at a very shallow angle. Small variations in the atmosphere
 #' can have a larger effect.
-#' @return The function returns the time of sunriset, either as a fraction of a day
-#' or as a `POSIXct` object, depending on the `POSIXct.out` parameter.
+#' @returns data.frame with the time of sunrise as a fraction of a day; if POSIXct.out=TRUE returns an additional 
+#' POSIXct timestamp column (default = TRUE)
+#' 
 #' @rdname sunriset
 #' @export
 setGeneric("sunriset", function(crds, dateTime, ...) {
