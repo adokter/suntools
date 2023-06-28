@@ -8,7 +8,7 @@
 #' * NOAA's [solar position calculator](https://gml.noaa.gov/grad/solcalc/azel.html).
 #' These algorithms include corrections for atmospheric refraction effects.
 #' * NOAA's [solar calculations details](https://gml.noaa.gov/grad/solcalc/calcdetails.html)
-#' @return Returns a matrix with the solar azimuth (in degrees from North), and elevation.
+#' @returns matrix with the solar azimuth (in degrees from North), and elevation.
 #' @rdname solarpos
 #' @export
 setGeneric("solarpos", function(crds, dateTime, ...) {
