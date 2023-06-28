@@ -34,7 +34,7 @@ setMethod("solarnoon", signature(crds="sf", dateTime="POSIXct"),
                        tz=time.ll$tz) + secs
                   res <- data.frame(day_frac=res, time=Pct)
               } else {
-              res <- res['day_frac']
+              res <- data.frame(day_frac=res)
             }
             rownames(res) <- NULL
             return(res)

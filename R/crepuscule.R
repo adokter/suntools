@@ -4,7 +4,7 @@
 #' @inheritParams sunriset
 #' @param solarDep A numerical value representing the solar depression angle.
 #' @inherit sunriset details references
-#' @returns data.frame with the time of crepuscular light as a fraction of a day; if POSIXct.out=TRUE returns an additional 
+#' @returns data.frame with the time of crepuscular light as a fraction of a day; if POSIXct.out=TRUE returns an additional
 #' POSIXct timestamp column (default = TRUE)
 #' @rdname crepuscule
 #' @export
@@ -39,7 +39,7 @@ setMethod("crepuscule",
                                        tz=time.ll$tz) + secs
                 res <- data.frame(day_frac=res, time=Pct)
               } else {
-              res <- as.data.frame(res, col.names=c('day_frac'))
+              res <- setNames(as.data.frame(res), 'day_frac')
               }
               rownames(res) <- NULL
               return(res)
