@@ -13,3 +13,4 @@ First release of `suntools` package on CRAN. Provides a set of functions to calc
 
 ## Bug Fixes
 * Resolved an issue where functions in the package would return a dataframe with a row name "newlon" when inputting a single-row matrix. This was unexpected and appeared in R versions < 4.3.0.
+* Resolved an issue where functions in the package would return numeric values instead of dataframes. 
