@@ -62,7 +62,7 @@
 #' can have a larger effect.
 #' @returns data.frame with the time of sunrise as a fraction of a day; if POSIXct.out=TRUE returns an additional 
 #' POSIXct timestamp column (default = TRUE)
-#' 
+#' @importFrom stats setNames
 #' @rdname sunriset
 #' @export
 setGeneric("sunriset", function(crds, dateTime, ...) {
@@ -94,7 +94,7 @@ setMethod("sunriset", signature(crds="sf", dateTime="POSIXct"),
                        tz=time.ll$tz) + secs
                   res <- data.frame(day_frac=res, time=Pct)
               } else {
-              res <- setNames(as.data.frame(res), 'day_frac')
+              res <- stats::setNames(as.data.frame(res), 'day_frac')
               }
               rownames(res) <- NULL
               return(res)

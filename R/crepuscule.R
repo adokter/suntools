@@ -6,6 +6,7 @@
 #' @inherit sunriset details references
 #' @returns data.frame with the time of crepuscular light as a fraction of a day; if POSIXct.out=TRUE returns an additional
 #' POSIXct timestamp column (default = TRUE)
+#' @importFrom stats setNames
 #' @rdname crepuscule
 #' @export
 setGeneric("crepuscule", function(crds, dateTime, ...) {
@@ -39,7 +40,7 @@ setMethod("crepuscule",
                                        tz=time.ll$tz) + secs
                 res <- data.frame(day_frac=res, time=Pct)
               } else {
-              res <- setNames(as.data.frame(res), 'day_frac')
+              res <- stats::setNames(as.data.frame(res), 'day_frac')
               }
               rownames(res) <- NULL
               return(res)
