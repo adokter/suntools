@@ -3,3 +3,4 @@
 ^\.github$
 ^codemeta\.json$
 ^LICENSE\.md$
+^cran-comments\.md$
