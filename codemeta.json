@@ -6,14 +6,14 @@
   "name": "suntools: Calculate sun position, sunrise, sunset, solar noon and twilight",
   "codeRepository": "https://github.com/adokter/suntools/",
   "issueTracker": "https://github.com/adokter/suntools/issues",
-  "license": "https://spdx.org/licenses/GPL-2.0",
+  "license": "https://spdx.org/licenses/GPL-3.0",
   "version": "1.0.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.3 (2023-03-15)",
+  "runtimePlatform": "R version 4.3.1 (2023-06-16)",
   "author": [
     {
       "@type": "Person",
@@ -42,11 +42,6 @@
       "familyName": "Huybrechts",
       "email": "pieter.huybrechts@inbo.be",
       "@id": "https://orcid.org/0000-0002-6658-6062"
-    },
-    {
-      "@type": "Person",
-      "givenName": "Sebastian",
-      "familyName": "Luque"
     },
     {
       "@type": "Person",
@@ -111,7 +106,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "64.192KB",
+  "fileSize": "73.9KB",
   "releaseNotes": "https://github.com/adokter/suntools/blob/master/NEWS.md",
   "readme": "https://github.com/adokter/suntools/blob/main/README.md",
   "contIntegration": "https://github.com/adokter/suntools/actions/workflows/R-CMD-check.yaml"
