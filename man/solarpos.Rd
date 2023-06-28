@@ -27,7 +27,7 @@ class \code{sf}, \code{matrix}, or \code{SpatialPoints}.}
 Default is \code{sf::st_crs(4326)}.}
 }
 \value{
-Returns a matrix with the solar azimuth (in degrees from North), and elevation.
+matrix with the solar azimuth (in degrees from North), and elevation.
 }
 \description{
 Calculates the solar position, i.e., the sun's elevation and azimuth,

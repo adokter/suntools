@@ -52,8 +52,8 @@ class \code{sf}, \code{matrix}, or \code{SpatialPoints}.}
 Default is \code{sf::st_crs(4326)} which denotes WGS84 (World Geodetic System 1984).}
 }
 \value{
-The function returns the time of crepuscular light, either as a fraction of a day
-or as a \code{POSIXct} object, depending on the \code{POSIXct.out} parameter.
+data.frame with the time of crepuscular light as a fraction of a day; if POSIXct.out=TRUE returns an additional
+POSIXct timestamp column (default = TRUE)
 }
 \description{
 Calculates the crepuscular time, i.e., the time of dawn or dusk
