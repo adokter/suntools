@@ -12,12 +12,7 @@ Authors@R: c(
 Encoding: UTF-8
 Depends: R (>= 2.10)
 Imports: methods, sf, stats
-Description: The suntools package provides a set of convenient functions for calculating sun-related information,
-including the sun's position (elevation and azimuth), and the times of sunrise, sunset, solar noon, and twilight. 
-These calculations are based on equations provided by the National Oceanic & Atmospheric Administration (NOAA). 
-With suntools, users can determine important information about the sun for any given geographical location and time on Earth. 
-The suntools package serves as a valuable resource for researchers, astronomers, and professionals working in fields such as
-climatology, biology, and renewable energy.
+Description: Provides a set of convenient functions for calculating sun-related information, including the sun's position (elevation and azimuth), and the times of sunrise, sunset, solar noon, and twilight for any given geographical location on Earth. These calculations are based on equations provided by the National Oceanic & Atmospheric Administration (NOAA) <https://gml.noaa.gov/grad/solcalc/calcdetails.html> as described in "Astronomical Algorithms" by Jean Meeus (1991, ISBN: 978-0-943396-35-4). A helpful resource for researchers and professionals working in fields such as climatology, biology, and renewable energy.
 License: GPL (>= 3)
 URL: https://github.com/adokter/suntools/
 BugReports: https://github.com/adokter/suntools/issues
