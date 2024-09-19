@@ -5,7 +5,7 @@
 #' @param solarDep A numerical value representing the solar depression angle.
 #' @inherit sunriset details references
 #' @returns data.frame with the time of crepuscular light as a fraction of a day; if POSIXct.out=TRUE returns an additional
-#' POSIXct timestamp column (default = TRUE)
+#' POSIXct timestamp column (default = FALSE)
 #' @importFrom stats setNames
 #' @rdname crepuscule
 #' @export
