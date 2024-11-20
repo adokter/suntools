@@ -1,5 +1,11 @@
 # suntools 1.0.0
 
+Minor bugfix to maintain compatibility with CRAN Debian system
+
+* changed timezone EET to Europe/Helsinki in tests
+
+# suntools 1.0.0
+
 First release of `suntools` package on CRAN. Provides a set of functions to calculate sun position, sunrise, sunset, solar noon and twilight, which were formerly made available by the [maptools]((https://CRAN.R-project.org/package=maptools) package.
 
 ## New features
