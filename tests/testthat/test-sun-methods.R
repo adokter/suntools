@@ -3,7 +3,7 @@ Hels <- sf::st_as_sf(as.data.frame(hels),
   coords = c(1, 2),
   crs = sf::st_crs(4326)
 )
-d041224 <- as.POSIXct("2004-12-24", tz = "EET")
+d041224 <- as.POSIXct("2004-12-24", tz = "Europe/Helsinki")
 
 test_that("crepuscule() calculates Astronomical dawn", {
   # allow for floating point errors in test
@@ -19,7 +19,7 @@ test_that("crepuscule() calculates Astronomical dawn", {
       list(
         day_frac = 0.276199993629954,
         time = structure(1103863063.67945,
-          tzone = "EET",
+          tzone = "Europe/Helsinki",
           class = c("POSIXct", "POSIXt")
         )
       ),
@@ -38,7 +38,7 @@ test_that("crepuscule() can calculate Nautical dawn", {
       list(
         day_frac = 0.312182180938729,
         time = structure(1103866172.54043,
-          tzone = "EET",
+          tzone = "Europe/Helsinki",
           class = c("POSIXct", "POSIXt")
         )
       ),
@@ -56,7 +56,7 @@ test_that("crepescule() can calulate Civil dawn", {
       list(
         day_frac = 0.351924864850489,
         time = structure(1103869606.30832,
-          tzone = "EET",
+          tzone = "Europe/Helsinki",
           class = c("POSIXct", "POSIXt")
         )
       ),
@@ -74,7 +74,7 @@ test_that("sunriset() can calculate the sunrise", {
       list(
         day_frac = 0.392424945734093,
         time = structure(1103873105.51531,
-          tzone = "EET",
+          tzone = "Europe/Helsinki",
           class = c("POSIXct", "POSIXt")
         )
       ),
@@ -92,7 +92,7 @@ test_that("solarnoon() can calculate the solar noon", {
       list(
         day_frac = 0.513796564070136,
         time = structure(1103883592.02314,
-          tzone = "EET",
+          tzone = "Europe/Helsinki",
           class = c("POSIXct", "POSIXt")
         )
       ),
