@@ -6,7 +6,7 @@
 \alias{suntools-package}
 \title{suntools: calculate sun position, sunrise, sunset, solar noon and twilight}
 \description{
-Provides a set of convenient functions for calculating sun-related information, including the sun's position (elevation and azimuth), and the times of sunrise, sunset, solar noon, and twilight for any given geographical location on Earth. These calculations are based on equations provided by the National Oceanic & Atmospheric Administration (NOAA) \url{https://gml.noaa.gov/grad/solcalc/calcdetails.html} as described in "Astronomical Algorithms" by Jean Meeus (1991, ISBN: 978-0-943396-35-4). A helpful resource for researchers and professionals working in fields such as climatology, biology, and renewable energy.
+Provides a set of convenient functions for calculating sun-related information, including the sun's position (elevation and azimuth), and the times of sunrise, sunset, solar noon, and twilight for any given geographical location on Earth. These calculations are based on equations provided by the National Oceanic & Atmospheric Administration (NOAA) \url{https://gml.noaa.gov/grad/solcalc/calcdetails.html} as described in "Astronomical Algorithms" by Jean Meeus (1991, ISBN: 978-0-943396-35-4).
 }
 \details{
 suntools provides functions for calculating the sun's position, sunrise, sunset,
