@@ -30,7 +30,7 @@ Default is \code{sf::st_crs(4326)} which denotes WGS84 (World Geodetic System 19
 }
 \value{
 data.frame with the time of solar noon as a fraction of a day; if POSIXct.out=TRUE returns an additional
-POSIXct timestamp column (default = TRUE)
+POSIXct timestamp column (default = FALSE)
 }
 \description{
 Calculates the solar noon, i.e., the time when the sun is at its highest point in the sky

@@ -1,6 +1,6 @@
 Package: suntools
-Version: 1.0.0
-Date: 2023-06-08
+Version: 1.0.1
+Date: 2024-11-20
 Title: Calculate Sun Position, Sunrise, Sunset, Solar Noon and Twilight
 Authors@R: c(
 	person("Roger", "Bivand", role = "aut", email = "Roger.Bivand@nhh.no", comment=c(ORCID="0000-0003-2392-6140")),
@@ -12,12 +12,12 @@ Authors@R: c(
 Encoding: UTF-8
 Depends: R (>= 2.10)
 Imports: methods, sf, stats
-Description: Provides a set of convenient functions for calculating sun-related information, including the sun's position (elevation and azimuth), and the times of sunrise, sunset, solar noon, and twilight for any given geographical location on Earth. These calculations are based on equations provided by the National Oceanic & Atmospheric Administration (NOAA) <https://gml.noaa.gov/grad/solcalc/calcdetails.html> as described in "Astronomical Algorithms" by Jean Meeus (1991, ISBN: 978-0-943396-35-4). A resource for researchers and professionals working in fields such as climatology, biology, and renewable energy.
+Description: Provides a set of convenient functions for calculating sun-related information, including the sun's position (elevation and azimuth), and the times of sunrise, sunset, solar noon, and twilight for any given geographical location on Earth. These calculations are based on equations provided by the National Oceanic & Atmospheric Administration (NOAA) <https://gml.noaa.gov/grad/solcalc/calcdetails.html> as described in "Astronomical Algorithms" by Jean Meeus (1991, ISBN: 978-0-943396-35-4).
 License: GPL (>= 3)
 URL: https://github.com/adokter/suntools/
 BugReports: https://github.com/adokter/suntools/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

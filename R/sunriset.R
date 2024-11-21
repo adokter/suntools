@@ -61,7 +61,7 @@
 #' because the sun rises and sets at a very shallow angle. Small variations in the atmosphere
 #' can have a larger effect.
 #' @returns data.frame with the time of sunrise as a fraction of a day; if POSIXct.out=TRUE returns an additional 
-#' POSIXct timestamp column (default = TRUE)
+#' POSIXct timestamp column (default = FALSE)
 #' @importFrom stats setNames
 #' @rdname sunriset
 #' @export

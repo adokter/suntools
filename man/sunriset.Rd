@@ -48,7 +48,7 @@ Default is \code{sf::st_crs(4326)} which denotes WGS84 (World Geodetic System 19
 }
 \value{
 data.frame with the time of sunrise as a fraction of a day; if POSIXct.out=TRUE returns an additional
-POSIXct timestamp column (default = TRUE)
+POSIXct timestamp column (default = FALSE)
 }
 \description{
 Calculates sunrise or sunset at a specific geographical location and time
