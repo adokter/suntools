@@ -1,6 +1,6 @@
-# suntools 1.0.0
+# suntools 1.0.1
 
-Minor bugfix to maintain compatibility with CRAN Debian system
+Minor change to unit test to maintain compatibility with CRAN Debian system
 
 * changed timezone EET to Europe/Helsinki in tests
 
