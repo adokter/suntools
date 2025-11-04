@@ -33,7 +33,7 @@ setMethod("crepuscule",
                                  dlstime=time.ll$dlstime,
                                  solarDep=solarDep, direction=direction)
               if (POSIXct.out) {
-                secs <- res * 86400 + dls_correction(dateTime)
+                secs <- res * 86400
                 if (is.null(time.ll$tz)) Pct <- as.POSIXct(format(dateTime,
                                                                   "%Y-%m-%d")) + secs
                 else Pct <- as.POSIXct(format(dateTime, "%Y-%m-%d"),

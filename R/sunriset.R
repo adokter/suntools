@@ -87,7 +87,7 @@ setMethod("sunriset", signature(crds="sf", dateTime="POSIXct"),
                                dlstime=time.ll$dlstime,
                                direction=direction)
               if (POSIXct.out) {
-                  secs <- res * 86400 + dls_correction(dateTime)
+                  secs <- res * 86400
                   if (is.null(time.ll$tz)) Pct <- as.POSIXct(format(dateTime,
                        "%Y-%m-%d")) + secs
                   else Pct <- as.POSIXct(format(dateTime, "%Y-%m-%d"),
