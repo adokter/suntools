@@ -32,12 +32,13 @@
 #'
 #' @description helper function for identifying days and timezones affected by daylight savings time
 #' @param dateTime a POSIXct time.
+#' @param lat a latitude in decimal degrees
 #' @return correction in seconds for longer/shorter daylength
 #' @keywords internal
-dls_correction <- function(dateTime){
+dls_correction <- function(dateTime, lat){
   tz <- attributes(dateTime)$tzone
   dls_correct_factor <- as.numeric(as.POSIXlt(dateTime)$zone != as.POSIXlt(as.POSIXct(format(dateTime, "%Y-%m-%d"), tz=tz))$zone)
-  dls_correct_sign <- ifelse(as.numeric(format(dateTime,"%m"))<7, -1, 1)
+  dls_correct_sign <- ifelse(lat>0,1,-1)*ifelse(as.numeric(format(dateTime,"%m"))<7, -1, 1)
   3600*dls_correct_factor * dls_correct_sign
 }
 

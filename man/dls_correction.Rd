@@ -4,10 +4,12 @@
 \alias{dls_correction}
 \title{Correct for daylight savings day length change}
 \usage{
-dls_correction(dateTime)
+dls_correction(dateTime, lat)
 }
 \arguments{
 \item{dateTime}{a POSIXct time.}
+
+\item{lat}{a latitude in decimal degrees}
 }
 \value{
 correction in seconds for longer/shorter daylength
