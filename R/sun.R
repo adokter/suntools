@@ -31,7 +31,6 @@
 #' @title Correct for daylight savings day length change
 #'
 #' @description helper function for identifying days and timezones affected by daylight savings time
-
 #' @param dateTime a POSIXct time.
 #' @return correction in seconds for longer/shorter daylength
 #' @keywords internal
@@ -41,7 +40,6 @@ dls_correction <- function(dateTime){
   dls_correct_sign <- ifelse(as.numeric(format(dateTime,"%m"))<7, -1, 1)
   3600*dls_correct_factor * dls_correct_sign
 }
-
 
 ".deg" <- function(radian) 180 * radian / pi
 ".rad" <- function(degree) pi * degree / 180
