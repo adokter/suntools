@@ -27,7 +27,7 @@ setMethod("solarnoon", signature(crds="sf", dateTime="POSIXct"),
                                 timezone=time.ll$timezone,
                                 dlstime=time.ll$dlstime)
               if (POSIXct.out) {
-                  secs <- res * 86400
+                  secs <- res * 86400 + dls_correction(dateTime)
                   if (is.null(time.ll$tz)) Pct <- as.POSIXct(format(dateTime,
                        "%Y-%m-%d")) + secs
                   else Pct <- as.POSIXct(format(dateTime, "%Y-%m-%d"),
