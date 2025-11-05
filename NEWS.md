@@ -1,3 +1,7 @@
+# suntools 1.1.0
+
+Corrects the output date (given when `POSIXct.out = TRUE`) on days that shift from daylight savings time to standard time. On these days only the output date was one hour off (#19).
+
 # suntools 1.0.1
 
 Minor change to unit test to maintain compatibility with CRAN Debian system
