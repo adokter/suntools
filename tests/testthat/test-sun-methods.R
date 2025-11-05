@@ -1,9 +1,16 @@
+# define a location in Helsinki
 hels <- matrix(c(24.97, 60.17), nrow = 1)
 Hels <- sf::st_as_sf(as.data.frame(hels),
   coords = c(1, 2),
   crs = sf::st_crs(4326)
 )
 d041224 <- as.POSIXct("2004-12-24", tz = "Europe/Helsinki")
+
+# define a location near Sydney, Australia
+Sydney <- sf::st_as_sf(data.frame(lon=153.5885, lat=-28.84979),coords = c(1, 2), crs = sf::st_crs(4326))
+
+# define a location in Ithaca NY, USA
+Ithaca <- sf::st_as_sf(data.frame(lon=-76.5019, lat=42.443),coords = c(1, 2), crs = sf::st_crs(4326))
 
 test_that("crepuscule() calculates Astronomical dawn", {
   # allow for floating point errors in test
@@ -109,3 +116,20 @@ test_that("solarpos can caluclate the solar position", {
     structure(c(184.478313910191, 50.5446683354915), dim = 1:2)
   )
 })
+
+test_that("daylight savings time is accounted for", {
+  # allow for floating point errors in test
+  ithaca_st1 <- sunriset(Ithaca, as.POSIXct("2025-03-08", tz="America/New_York"), POSIXct.out = TRUE)
+  ithaca_dst1 <- sunriset(Ithaca, as.POSIXct("2025-03-09", tz="America/New_York"), POSIXct.out = TRUE)
+  ithaca_dst2 <- sunriset(Ithaca, as.POSIXct("2025-11-01", tz="America/New_York"), POSIXct.out = TRUE)
+  ithaca_st2 <- sunriset(Ithaca, as.POSIXct("2025-11-02", tz="America/New_York"), POSIXct.out = TRUE)
+  sydney_dst1 <- sunriset(Sydney, as.POSIXct("2025-04-05", tz="Australia/Sydney"), POSIXct.out = TRUE)
+  sydney_st1 <- sunriset(Sydney, as.POSIXct("2025-04-06", tz="Australia/Sydney"), POSIXct.out = TRUE)
+  sydney_st2 <- sunriset(Sydney, as.POSIXct("2025-10-04", tz="Australia/Sydney"), POSIXct.out = TRUE)
+  sydney_dst2 <- sunriset(Sydney, as.POSIXct("2025-10-05", tz="Australia/Sydney"), POSIXct.out = TRUE)
+  expect_equal(as.numeric(format(sydney_dst1$time,"%H"))-as.numeric(format(sydney_st1$time,"%H")),1)
+  expect_equal(as.numeric(format(sydney_dst2$time,"%H"))-as.numeric(format(sydney_st2$time,"%H")),1)
+  expect_equal(as.numeric(format(ithaca_dst1$time,"%H"))-as.numeric(format(ithaca_st1$time,"%H")),1)
+  expect_equal(as.numeric(format(ithaca_dst2$time,"%H"))-as.numeric(format(ithaca_st2$time,"%H")),1)
+})
+
