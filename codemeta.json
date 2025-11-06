@@ -7,13 +7,13 @@
   "codeRepository": "https://github.com/adokter/suntools/",
   "issueTracker": "https://github.com/adokter/suntools/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.4.1 (2024-06-14)",
+  "runtimePlatform": "R version 4.4.2 (2024-10-31)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -117,7 +117,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "74.599KB",
+  "fileSize": "78.295KB",
   "releaseNotes": "https://github.com/adokter/suntools/blob/master/NEWS.md",
   "readme": "https://github.com/adokter/suntools/blob/main/README.md",
   "contIntegration": "https://github.com/adokter/suntools/actions/workflows/R-CMD-check.yaml"
