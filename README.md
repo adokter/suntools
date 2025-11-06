@@ -50,7 +50,7 @@ sunriset(
 
 ## Author(s)
 
-- Greg Pelletier ([gpel461@ecy.wa.gov](mailto:gpel461@ecy.wa.gov)) - Original VBA code available from [Ecology WA Gov: Models & Tools for TMDLs](https://ecology.wa.gov/Research-Data/Data-resources/Models-spreadsheets/Modeling-the-environment/Models-tools-for-TMDLs), who in turn translated it from original Javascript code by NOAA
+- Greg Pelletier ([gpel461@ecy.wa.gov](mailto:gpel461@ecy.wa.gov)) - Original VBA code available from [Ecology WA Gov: Models & Tools for TMDLs](https://ecology.wa.gov/research-data/data-resources/models-spreadsheets/modeling-the-environment/models-tools-for-tmdls), who in turn translated it from original Javascript code by NOAA
 - Sebastian P. Luque ([spluque@gmail.com](mailto:spluque@gmail.com)), translated from Greg Pelletier's code    
 - Roger Bivand ([roger.bivand@nhh.no](mailto:roger.bivand@nhh.no)) adapted the code to work with sp classes.
 - Adriaan M. Dokter ([amd427@cornell.edu](mailto:amd427@cornell.edu)) adapted the code to work with sf classes.
