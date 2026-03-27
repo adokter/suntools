@@ -254,54 +254,21 @@ dls_correction <- function(dateTime, lat){
 ".hangleCrepuscule" <- function(lat, solarDec, solarDep,
                                 direction=c("dawn", "dusk"))
 {
-  ## Apply atmospheric refraction correction to match .solarpos behavior
+  ## Value: Numeric, hour angle of the sun at dawn or dusk in radians.
+  ## --------------------------------------------------------------------
+  ## Arguments: solarDec=declination angle of the sun in degrees;
+  ## solarDep=angle of the sun below the horizon in degrees;
+  ## dawn=logical indicating whether dawn or dusk hour angle should be
+  ## returned.
+  ## --------------------------------------------------------------------
+  ## Author: Sebastian Luque
+  ## --------------------------------------------------------------------
   latrad <- .rad(lat)
   sdrad <- .rad(solarDec)
 
-  # Target apparent elevation (negative for depression angles)
-  target_apparent_elevation <- -solarDep
+  refracCorr <- .getrefracCorr(-solarDep)
 
-  # Calculate atmospheric refraction correction using same algorithm as .solarpos
-  exoatmEl <- target_apparent_elevation
-  refracCorr <- numeric(length(exoatmEl))
-
-  hiR <- exoatmEl > 85
-  refracCorr[hiR] <- 0
-  loR <- !hiR
-
-  # Medium elevation correction (5° to 85°)
-  zz <- loR & exoatmEl > 5
-  if(any(zz)) {
-    te <- tan(.rad(exoatmEl[zz]))
-    refracCorr[zz] <- 58.1 / te - 0.07 / (te^3) + 8.6e-5 / te^5
-  }
-
-  # Low elevation correction (-0.575° to 5°)
-  zz <- loR & !exoatmEl > 5 & exoatmEl > -0.575
-  if(any(zz)) {
-    step1 <- -12.79 + exoatmEl[zz] * 0.711
-    step2 <- 103.4 + exoatmEl[zz] * step1
-    step3 <- -518.2 + exoatmEl[zz] * step2
-    refracCorr[zz] <- 1735 + exoatmEl[zz] * step3
-  }
-
-  # Below horizon correction (<-0.575°)
-  zz <- loR & !exoatmEl > 5 & !exoatmEl > -0.575
-  if(any(zz)) {
-    te <- tan(.rad(exoatmEl[zz]))
-    refracCorr[zz] <- -20.774 / te
-  }
-
-  refracCorr <- refracCorr / 3600  # Convert from arcseconds to degrees
-
-  # Calculate geometric elevation needed to achieve target apparent elevation
-  # apparent_elevation = geometric_elevation + refraction_correction
-  # So: geometric_elevation = apparent_elevation - refraction_correction
-  target_geometric_elevation <- target_apparent_elevation - refracCorr
-  corrected_depression <- -target_geometric_elevation
-
-  # Use corrected depression in spherical trigonometry
-  haarg <- (cos(.rad(90 + corrected_depression)) / (cos(latrad) * cos(sdrad)) -
+  haarg <- (cos(.rad(90 + solarDep + refracCorr)) / (cos(latrad) * cos(sdrad)) -
               tan(latrad) * tan(sdrad))
   haarg[abs(haarg) >= 1] <- NA
   angle <- acos(haarg)
@@ -517,6 +484,27 @@ dls_correction <- function(dateTime, lat){
     solarnoon / 1440
 }
 
+".getrefracCorr" <- function(exoatmEl){
+  ## calculate refraction correction
+  ## split out from .solarPos function so it can be recycled
+  refracCorr <- numeric(length(exoatmEl))
+  hiR <- exoatmEl > 85                # if (exoatmElevation > 85) ... BEG
+  refracCorr[hiR] <- 0
+  loR <- !hiR
+  zz <- loR & exoatmEl > 5
+  te <- tan(.rad(exoatmEl[zz]))
+  refracCorr[zz] <- 58.1 / te - 0.07 / (te^3) + 8.6e-5 / te^5
+  zz <- loR & !exoatmEl > 5 & exoatmEl > -0.575
+  step1 <- -12.79 + exoatmEl[zz] * 0.711
+  step2 <- 103.4 + exoatmEl[zz] * step1
+  step3 <- -518.2 + exoatmEl[zz] * step2
+  refracCorr[zz] <- 1735 + exoatmEl[zz] * step3
+  zz <- loR & !exoatmEl > 5 & !exoatmEl > -0.575
+  te <- tan(.rad(exoatmEl[zz]))
+  refracCorr[zz] <- -20.774 / te
+  refracCorr / 3600
+}
+
 ".solarpos" <- function(lon, lat, year, month, day, hours, minutes,
                         seconds, timezone, dlstime)
 {
@@ -571,22 +559,9 @@ dls_correction <- function(dateTime, lat){
                                         # if (Abs(azDenom) > 0.001) ... END
     azimuth[azimuth < 0] <- azimuth[azimuth < 0] + 360
     exoatmEl <- 90 - zenith
-    refracCorr <- numeric(length(exoatmEl))
-    hiR <- exoatmEl > 85                # if (exoatmElevation > 85) ... BEG
-    refracCorr[hiR] <- 0
-    loR <- !hiR
-    zz <- loR & exoatmEl > 5
-    te <- tan(.rad(exoatmEl[zz]))
-    refracCorr[zz] <- 58.1 / te - 0.07 / (te^3) + 8.6e-5 / te^5
-    zz <- loR & !exoatmEl > 5 & exoatmEl > -0.575
-    step1 <- -12.79 + exoatmEl[zz] * 0.711
-    step2 <- 103.4 + exoatmEl[zz] * step1
-    step3 <- -518.2 + exoatmEl[zz] * step2
-    refracCorr[zz] <- 1735 + exoatmEl[zz] * step3
-    zz <- loR & !exoatmEl > 5 & !exoatmEl > -0.575
-    te <- tan(.rad(exoatmEl[zz]))
-    refracCorr[zz] <- -20.774 / te
-    refracCorr <- refracCorr / 3600
+
+    refracCorr <- .getrefracCorr(exoatmEl)
+
     solarzen <- zenith - refracCorr
     cbind(azimuth=azimuth, elevation=90 - solarzen)
 }
