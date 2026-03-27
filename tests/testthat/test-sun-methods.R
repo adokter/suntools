@@ -24,8 +24,8 @@ test_that("crepuscule() calculates Astronomical dawn", {
     ),
     structure(
       list(
-        day_frac = 0.276199993629954,
-        time = structure(1103863063.67945,
+        day_frac = 0.276096902924518,
+        time = structure(1103863054.77241,
           tzone = "Europe/Helsinki",
           class = c("POSIXct", "POSIXt")
         )
@@ -43,8 +43,8 @@ test_that("crepuscule() can calculate Nautical dawn", {
     crepuscule(hels, d041224, solarDep = 12, direction = "dawn", POSIXct.out = TRUE),
     structure(
       list(
-        day_frac = 0.312182180938729,
-        time = structure(1103866172.54043,
+        day_frac = 0.312012844159682,
+        time = structure(1103866157.90974,
           tzone = "Europe/Helsinki",
           class = c("POSIXct", "POSIXt")
         )
@@ -61,8 +61,8 @@ test_that("crepescule() can calulate Civil dawn", {
     crepuscule(Hels, d041224, solarDep = 6, direction = "dawn", POSIXct.out = TRUE),
     structure(
       list(
-        day_frac = 0.351924864850489,
-        time = structure(1103869606.30832,
+        day_frac = 0.351534476960216,
+        time = structure(1103869572.57881,
           tzone = "Europe/Helsinki",
           class = c("POSIXct", "POSIXt")
         )
