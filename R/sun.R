@@ -254,22 +254,25 @@ dls_correction <- function(dateTime, lat){
 ".hangleCrepuscule" <- function(lat, solarDec, solarDep,
                                 direction=c("dawn", "dusk"))
 {
-    ## Value: Numeric, hour angle of the sun at dawn or dusk in radians.
-    ## --------------------------------------------------------------------
-    ## Arguments: solarDec=declination angle of the sun in degrees;
-    ## solarDep=angle of the sun below the horizon in degrees;
-    ## dawn=logical indicating whether dawn or dusk hour angle should be
-    ## returned.
-    ## --------------------------------------------------------------------
-    ## Author: Sebastian Luque
-    ## --------------------------------------------------------------------
-    latrad <- .rad(lat)
-    sdrad <- .rad(solarDec)
-    haarg <- (cos(.rad(90 + solarDep)) / (cos(latrad) * cos(sdrad)) -
+  ## Value: Numeric, hour angle of the sun at dawn or dusk in radians.
+  ## --------------------------------------------------------------------
+  ## Arguments: solarDec=declination angle of the sun in degrees;
+  ## solarDep=angle of the sun below the horizon in degrees;
+  ## dawn=logical indicating whether dawn or dusk hour angle should be
+  ## returned.
+  ## --------------------------------------------------------------------
+  ## Author: Sebastian Luque
+  ## --------------------------------------------------------------------
+  latrad <- .rad(lat)
+  sdrad <- .rad(solarDec)
+
+  refracCorr <- .getrefracCorr(-solarDep)
+
+  haarg <- (cos(.rad(90 + solarDep + refracCorr)) / (cos(latrad) * cos(sdrad)) -
               tan(latrad) * tan(sdrad))
-    haarg[abs(haarg) >= 1] <- NA
-    angle <- acos(haarg)
-    switch(direction, dawn=angle, dusk=-angle)
+  haarg[abs(haarg) >= 1] <- NA
+  angle <- acos(haarg)
+  switch(direction, dawn=angle, dusk=-angle)
 }
 
 ".hangleSunriset" <- function(lat, solarDec, direction=c("sunrise", "sunset"))
@@ -481,6 +484,27 @@ dls_correction <- function(dateTime, lat){
     solarnoon / 1440
 }
 
+".getrefracCorr" <- function(exoatmEl){
+  ## calculate refraction correction
+  ## split out from .solarPos function so it can be recycled
+  refracCorr <- numeric(length(exoatmEl))
+  hiR <- exoatmEl > 85                # if (exoatmElevation > 85) ... BEG
+  refracCorr[hiR] <- 0
+  loR <- !hiR
+  zz <- loR & exoatmEl > 5
+  te <- tan(.rad(exoatmEl[zz]))
+  refracCorr[zz] <- 58.1 / te - 0.07 / (te^3) + 8.6e-5 / te^5
+  zz <- loR & !exoatmEl > 5 & exoatmEl > -0.575
+  step1 <- -12.79 + exoatmEl[zz] * 0.711
+  step2 <- 103.4 + exoatmEl[zz] * step1
+  step3 <- -518.2 + exoatmEl[zz] * step2
+  refracCorr[zz] <- 1735 + exoatmEl[zz] * step3
+  zz <- loR & !exoatmEl > 5 & !exoatmEl > -0.575
+  te <- tan(.rad(exoatmEl[zz]))
+  refracCorr[zz] <- -20.774 / te
+  refracCorr / 3600
+}
+
 ".solarpos" <- function(lon, lat, year, month, day, hours, minutes,
                         seconds, timezone, dlstime)
 {
@@ -535,22 +559,9 @@ dls_correction <- function(dateTime, lat){
                                         # if (Abs(azDenom) > 0.001) ... END
     azimuth[azimuth < 0] <- azimuth[azimuth < 0] + 360
     exoatmEl <- 90 - zenith
-    refracCorr <- numeric(length(exoatmEl))
-    hiR <- exoatmEl > 85                # if (exoatmElevation > 85) ... BEG
-    refracCorr[hiR] <- 0
-    loR <- !hiR
-    zz <- loR & exoatmEl > 5
-    te <- tan(.rad(exoatmEl[zz]))
-    refracCorr[zz] <- 58.1 / te - 0.07 / (te^3) + 8.6e-5 / te^5
-    zz <- loR & !exoatmEl > 5 & exoatmEl > -0.575
-    step1 <- -12.79 + exoatmEl[zz] * 0.711
-    step2 <- 103.4 + exoatmEl[zz] * step1
-    step3 <- -518.2 + exoatmEl[zz] * step2
-    refracCorr[zz] <- 1735 + exoatmEl[zz] * step3
-    zz <- loR & !exoatmEl > 5 & !exoatmEl > -0.575
-    te <- tan(.rad(exoatmEl[zz]))
-    refracCorr[zz] <- -20.774 / te
-    refracCorr <- refracCorr / 3600
+
+    refracCorr <- .getrefracCorr(exoatmEl)
+
     solarzen <- zenith - refracCorr
     cbind(azimuth=azimuth, elevation=90 - solarzen)
 }
